@@ -11,6 +11,7 @@ import SubCategory from './pages/SubCategory/SubCategory';
 import User from './pages/User/User';
 import Tag from './pages/Tag/Tag';
 import ArticleDetail from './pages/Article/ArticleDetail';
+import BrandDetail from './pages/Brand/BrandDetail';
 
 export const routes = [
     {
@@ -136,14 +137,30 @@ export const detailPageRoutes = [
         component: ArticleDetail,
         layout: "/admin/article"
     },
-    // {
-    //     path: "/brand/add",
-    //     name: "Add Brand",
-    //     page: "brand_detail",
-    //     icon: "ni ni-tv-2 text-primary",
-    //     component: Brand,
-    //     layout: "/admin"
-    // },
+    {
+        path: "/add",
+        name: "Add Brnad",
+        page: "brnad_detail",
+        icon: "ni ni-tv-2 text-primary",
+        component: BrandDetail,
+        layout: "/admin/brand"
+    },
+    {
+        path: "/edit/:id",
+        name: "Edit Brand",
+        page: "brand_detail",
+        icon: "ni ni-tv-2 text-primary",
+        component: BrandDetail,
+        layout: "/admin/brand"
+    },
+    {
+        path: "/:id",
+        name: "Brand Detail",
+        page: "brand_detail",
+        icon: "ni ni-tv-2 text-primary",
+        component: BrandDetail,
+        layout: "/admin/brand"
+    },
     // {
     //     path: "/brand/edit/:id",
     //     name: "Edit Brand",
