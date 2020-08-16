@@ -12,6 +12,8 @@ import User from './pages/User/User';
 import Tag from './pages/Tag/Tag';
 import ArticleDetail from './pages/Article/ArticleDetail';
 import BrandDetail from './pages/Brand/BrandDetail';
+import CategoryDetail from './pages/Category/CategoryDetail';
+import SectionDetail from './pages/Section/SectionDetail';
 
 export const routes = [
     {
@@ -139,8 +141,8 @@ export const detailPageRoutes = [
     },
     {
         path: "/add",
-        name: "Add Brnad",
-        page: "brnad_detail",
+        name: "Add Brand",
+        page: "brand_detail",
         icon: "ni ni-tv-2 text-primary",
         component: BrandDetail,
         layout: "/admin/brand"
@@ -161,14 +163,54 @@ export const detailPageRoutes = [
         component: BrandDetail,
         layout: "/admin/brand"
     },
-    // {
-    //     path: "/brand/edit/:id",
-    //     name: "Edit Brand",
-    //     page: "brand_detail",
-    //     icon: "ni ni-tv-2 text-primary",
-    //     component: Brand,
-    //     layout: "/admin"
-    // },
+    {
+        path: "/add",
+        name: "Add Category",
+        page: "category_detail",
+        icon: "ni ni-tv-2 text-primary",
+        component: CategoryDetail,
+        layout: "/admin/category"
+    },
+    {
+        path: "/edit/:id",
+        name: "Edit Category",
+        page: "category_detail",
+        icon: "ni ni-tv-2 text-primary",
+        component: CategoryDetail,
+        layout: "/admin/category"
+    },
+    {
+        path: "/:id",
+        name: "Category Detail",
+        page: "category_detail",
+        icon: "ni ni-tv-2 text-primary",
+        component: CategoryDetail,
+        layout: "/admin/category"
+    },
+    {
+        path: "/add",
+        name: "Add Section",
+        page: "section_detail",
+        icon: "ni ni-tv-2 text-primary",
+        component: SectionDetail,
+        layout: "/admin/section"
+    },
+    {
+        path: "/edit/:id",
+        name: "Edit Section",
+        page: "section_detail",
+        icon: "ni ni-tv-2 text-primary",
+        component: SectionDetail,
+        layout: "/admin/section"
+    },
+    {
+        path: "/:id",
+        name: "Section Detail",
+        page: "section_detail",
+        icon: "ni ni-tv-2 text-primary",
+        component: SectionDetail,
+        layout: "/admin/section"
+    },
     // {
     //     path: "/category",
     //     name: "Categories",

@@ -4,41 +4,42 @@ import UploadImage from '../../components/Form/UploadImage/UploadImage';
 
 export default props => {
 
-    const [brand, setBrand] = useState({
+    const [section, setSection] = useState({
         name: "",
         logo: "",
-        slug: ""
+        slug: "",
+        categories: []
     });
 
     const [isLoading, setLoading] = useState(false);
 
     const [action] = useState('add');
 
-    useEffect(() => getBrand(), []);
+    useEffect(() => getSection(), []);
 
     function setLogo(logo) {
-        setBrand({ ...brand, logo });
+        setSection({ ...section, logo });
     }
 
-    function onBrandNameChange(name) {
-        setBrand({
-            ...brand,
+    function onSectionNameChange(name) {
+        setSection({
+            ...section,
             name,
             slug: String(name).toLocaleLowerCase().split(' ').join('-')
         });
     }
 
-    function addBrand() {
+    function addSection() {
         setLoading(true);
         setLoading(false);
     }
 
-    function getBrand() {
+    function getSection() {
         setLoading(true);
         setLoading(false);
     }
 
-    function updateBrand() {
+    function updateSection() {
         setLoading(true);
         setLoading(false);
     }
@@ -53,7 +54,7 @@ export default props => {
                             <CardHeader className="bg-white border-0">
                                 <Row className="align-items-center">
                                     <Col xs="12">
-                                        <h3 className="mb-0">Add Brand</h3>
+                                        <h3 className="mb-0">Add Section</h3>
                                     </Col>
                                 </Row>
                             </CardHeader>
@@ -62,7 +63,7 @@ export default props => {
                                     <div className="pl-lg-4">
                                         <Row>
                                             <Col xs="12" md="4" lg="4">
-                                                <UploadImage image={brand.logo} setLogo={setLogo.bind(this)} disabled={isLoading} />
+                                                <UploadImage image={section.logo} setLogo={setLogo.bind(this)} disabled={isLoading} />
                                             </Col>
                                             <Col xs="12" md="8" lg="8">
                                                 <Row>
@@ -71,15 +72,15 @@ export default props => {
                                                             <label
                                                                 className="form-control-label"
                                                                 htmlFor="input-username">
-                                                                Brand Name
+                                                                Section Name
                                                             </label>
                                                             <Input
                                                                 className="form-control-alternative"
                                                                 id="input-username"
                                                                 placeholder="Eg: Nike"
                                                                 disabled={isLoading}
-                                                                value={brand.name}
-                                                                onChange={e => onBrandNameChange(e.target.value)}
+                                                                value={section.name}
+                                                                onChange={e => onSectionNameChange(e.target.value)}
                                                                 type="text"
                                                             />
                                                         </FormGroup>
@@ -97,8 +98,8 @@ export default props => {
                                                                 className="form-control-alternative"
                                                                 id="input-username"
                                                                 placeholder="Eg: nike"
-                                                                value={brand.slug}
-                                                                onChange={e => setBrand({ ...brand, slug: e.target.value })}
+                                                                value={section.slug}
+                                                                onChange={e => setSection({ ...section, slug: e.target.value })}
                                                                 disabled={true}
                                                                 type="text"
                                                             />
@@ -110,7 +111,7 @@ export default props => {
                                                         className="my-4"
                                                         disabled={isLoading}
                                                         color="primary"
-                                                        onClick={() => action === 'add' ? addBrand() : updateBrand()}
+                                                        onClick={() => action === 'add' ? addSection() : updateSection()}
                                                         type="button">
                                                         {action === 'add' ? 'Save' : 'Update'}
                                                     </Button>
