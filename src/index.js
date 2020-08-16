@@ -16,8 +16,15 @@ import "./assets/scss/argon-dashboard-react.scss";
 //   document.getElementById('root')
 // );
 
-ReactDOM.hydrate(<App />, document.getElementById('root'));
+// ReactDOM.hydrate(<App />, document.getElementById('root'));
 
+
+const render = (Comp) => {
+    const renderMethod = !!module.hot ? ReactDOM.render : ReactDOM.hydrate
+    renderMethod(<App />, document.getElementById('root'));
+};
+
+render();
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA

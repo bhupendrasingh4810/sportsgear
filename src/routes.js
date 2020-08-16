@@ -10,6 +10,7 @@ import Section from './pages/Section/Section';
 import SubCategory from './pages/SubCategory/SubCategory';
 import User from './pages/User/User';
 import Tag from './pages/Tag/Tag';
+import ArticleDetail from './pages/Article/ArticleDetail';
 
 export const routes = [
     {
@@ -107,5 +108,120 @@ export const routes = [
         icon: "ni ni-tv-2 text-primary",
         component: User,
         layout: "/admin"
+    }
+];
+
+export const detailPageRoutes = [
+    {
+        path: "/add",
+        name: "Add Article",
+        page: "article_detail",
+        icon: "ni ni-tv-2 text-primary",
+        component: ArticleDetail,
+        layout: "/admin/article"
     },
+    {
+        path: "/edit/:id",
+        name: "Edit Article",
+        page: "article_detail",
+        icon: "ni ni-tv-2 text-primary",
+        component: ArticleDetail,
+        layout: "/admin/article"
+    },
+    {
+        path: "/:id",
+        name: "Article Detail",
+        page: "article_detail",
+        icon: "ni ni-tv-2 text-primary",
+        component: ArticleDetail,
+        layout: "/admin/article"
+    },
+    // {
+    //     path: "/brand/add",
+    //     name: "Add Brand",
+    //     page: "brand_detail",
+    //     icon: "ni ni-tv-2 text-primary",
+    //     component: Brand,
+    //     layout: "/admin"
+    // },
+    // {
+    //     path: "/brand/edit/:id",
+    //     name: "Edit Brand",
+    //     page: "brand_detail",
+    //     icon: "ni ni-tv-2 text-primary",
+    //     component: Brand,
+    //     layout: "/admin"
+    // },
+    // {
+    //     path: "/category",
+    //     name: "Categories",
+    //     page: "category",
+    //     icon: "ni ni-tv-2 text-primary",
+    //     component: Category,
+    //     layout: "/admin"
+    // },
+    // {
+    //     path: "/cart",
+    //     name: "Carts",
+    //     page: "cart",
+    //     icon: "ni ni-tv-2 text-primary",
+    //     component: Cart,
+    //     layout: "/admin"
+    // },
+    // {
+    //     path: "/order",
+    //     name: "Orders",
+    //     page: "order",
+    //     icon: "ni ni-tv-2 text-primary",
+    //     component: Order,
+    //     layout: "/admin"
+    // },
+    // {
+    //     path: "/product",
+    //     name: "Products",
+    //     page: "product",
+    //     icon: "ni ni-tv-2 text-primary",
+    //     component: Product,
+    //     layout: "/admin"
+    // },
+    // {
+    //     path: "/property",
+    //     name: "Properties",
+    //     page: "property",
+    //     icon: "ni ni-tv-2 text-primary",
+    //     component: Property,
+    //     layout: "/admin"
+    // },
+    // {
+    //     path: "/section",
+    //     name: "Sections",
+    //     page: "section",
+    //     icon: "ni ni-tv-2 text-primary",
+    //     component: Section,
+    //     layout: "/admin"
+    // },
+    // {
+    //     path: "/sub-category",
+    //     name: "Sub Categories",
+    //     page: "sub-category",
+    //     icon: "ni ni-tv-2 text-primary",
+    //     component: SubCategory,
+    //     layout: "/admin"
+    // },
+    // {
+    //     path: "/tag",
+    //     name: "Tags",
+    //     page: "tag",
+    //     icon: "ni ni-tv-2 text-primary",
+    //     component: Tag,
+    //     layout: "/admin"
+    // },
+    // {
+    //     path: "/users",
+    //     name: "Users",
+    //     page: "user",
+    //     icon: "ni ni-tv-2 text-primary",
+    //     component: User,
+    //     layout: "/admin"
+    // }
 ];

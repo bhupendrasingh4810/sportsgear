@@ -2,15 +2,16 @@ import React from 'react';
 import AdminSidebar from '../components/Sidebars/AdminSidebar';
 import { Switch, Redirect, Route } from 'react-router-dom';
 import AdminNavbar from '../components/Navbars/AdminNavbar';
-import { routes } from '../routes';
+import { routes, detailPageRoutes } from '../routes';
 
 export default props => {
 
-    function getRoutes(routes) {
-        return routes && routes.map((prop, key) => {
-            if (prop.layout === "/admin")
+    function getRoutes(routes, detailPageRoutes) {
+        return [...routes, ...detailPageRoutes].map((prop, key) => {
+            if (prop.layout.includes("/admin"))
                 return (
                     <Route
+                        exact
                         path={prop.layout + prop.path}
                         component={prop.component}
                         key={key}
@@ -19,12 +20,14 @@ export default props => {
             return null;
         });
     };
+
     function getBrandText(path) {
         for (let i = 0; i < routes.length; i++)
             if (path.indexOf(routes[i].layout + routes[i].path) !== -1)
                 return routes[i].name;
         return "Brand";
     };
+
     return (
         <>
             <AdminSidebar
@@ -42,7 +45,7 @@ export default props => {
                     brandText={getBrandText(props.location.pathname)}
                 />
                 <Switch>
-                    {getRoutes(routes)}
+                    {getRoutes(routes, detailPageRoutes)}
                     <Redirect from="*" to="/admin/dashboard" />
                 </Switch>
             </div>
