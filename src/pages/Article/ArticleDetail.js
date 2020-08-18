@@ -121,7 +121,7 @@ export default props => {
                                                             <Row className="ml-3">
                                                                 {properties && properties.map((property, key) => {
                                                                     return (
-                                                                        String(searchValue) && String(property).toLocaleLowerCase().indexOf(String(searchValue).toLocaleLowerCase()) !== -1
+                                                                        (String(searchValue) && String(property).toLocaleLowerCase().indexOf(String(searchValue).toLocaleLowerCase()) !== -1) || article.properties.includes(property)
                                                                             ? <Button
                                                                                 className="mt-2"
                                                                                 color={article.properties.includes(property) ? 'primary' : 'secondary'}

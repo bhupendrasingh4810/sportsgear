@@ -79,6 +79,7 @@ export default props => {
                             alt={logo.imgAlt}
                             className="navbar-brand-img"
                             src={logo.imgSrc}
+                            style={{ maxHeight: '80px' }}
                         />
                     </NavbarBrand>
                 ) : null}

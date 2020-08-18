@@ -35,7 +35,7 @@ export default props => {
                 routes={routes}
                 logo={{
                     innerLink: "/admin/dashboard",
-                    imgSrc: require("../assets/img/brand/argon-react.png"),
+                    imgSrc: require("../assets/img/brand/logo.png"),
                     imgAlt: "..."
                 }}
             />

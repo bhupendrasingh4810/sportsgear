@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 export default props => {
 
-    const [image, setImage] = useState(props.image ? props.image : 'http://i.pravatar.cc/500?img=7');
+    const [image, setImage] = useState(props.image ? props.image : null);
 
     function readURL(input) {
         if (input.files && input.files[0]) {
@@ -18,7 +18,7 @@ export default props => {
     }
 
     return (
-        <div className="avatar-upload">
+        <div className="avatar-upload mb-1">
             <div className="avatar-edit">
                 <input type='file' id="imageUpload" disabled={props.disabled} onChange={e => readURL(e.target)} accept=".png, .jpg, .jpeg" />
                 <label htmlFor="imageUpload">
@@ -26,7 +26,7 @@ export default props => {
                 </label>
             </div>
             <div className="avatar-preview">
-                <div id="imagePreview" style={{ backgroundImage: `url(${image})` }}>
+                <div id="imagePreview" style={{ backgroundImage: `url(${image || require('../../../assets/img/theme/placeholder.png')})` }}>
                 </div>
             </div>
         </div>

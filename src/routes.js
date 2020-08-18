@@ -14,6 +14,7 @@ import ArticleDetail from './pages/Article/ArticleDetail';
 import BrandDetail from './pages/Brand/BrandDetail';
 import CategoryDetail from './pages/Category/CategoryDetail';
 import SectionDetail from './pages/Section/SectionDetail';
+import SubCategoryDetail from './pages/SubCategory/SubCategoryDetail';
 
 export const routes = [
     {
@@ -165,6 +166,30 @@ export const detailPageRoutes = [
     },
     {
         path: "/add",
+        name: "Add Section",
+        page: "section_detail",
+        icon: "ni ni-tv-2 text-primary",
+        component: SectionDetail,
+        layout: "/admin/section"
+    },
+    {
+        path: "/edit/:id",
+        name: "Edit Section",
+        page: "section_detail",
+        icon: "ni ni-tv-2 text-primary",
+        component: SectionDetail,
+        layout: "/admin/section"
+    },
+    {
+        path: "/:id",
+        name: "Section Detail",
+        page: "section_detail",
+        icon: "ni ni-tv-2 text-primary",
+        component: SectionDetail,
+        layout: "/admin/section"
+    },
+    {
+        path: "/add",
         name: "Add Category",
         page: "category_detail",
         icon: "ni ni-tv-2 text-primary",
@@ -189,27 +214,27 @@ export const detailPageRoutes = [
     },
     {
         path: "/add",
-        name: "Add Section",
-        page: "section_detail",
+        name: "Add Sub Category",
+        page: "sub_category_detail",
         icon: "ni ni-tv-2 text-primary",
-        component: SectionDetail,
-        layout: "/admin/section"
+        component: SubCategoryDetail,
+        layout: "/admin/sub-category"
     },
     {
         path: "/edit/:id",
-        name: "Edit Section",
-        page: "section_detail",
+        name: "Edit Sub Category",
+        page: " sub_category_detail",
         icon: "ni ni-tv-2 text-primary",
-        component: SectionDetail,
-        layout: "/admin/section"
+        component: SubCategoryDetail,
+        layout: "/admin/sub-category"
     },
     {
         path: "/:id",
-        name: "Section Detail",
-        page: "section_detail",
+        name: "Sub Category Detail",
+        page: "sub_category_detail",
         icon: "ni ni-tv-2 text-primary",
-        component: SectionDetail,
-        layout: "/admin/section"
+        component: SubCategoryDetail,
+        layout: "/admin/sub_category"
     },
     // {
     //     path: "/category",

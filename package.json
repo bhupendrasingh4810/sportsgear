@@ -9,7 +9,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "chart.js": "2.9.3",
-    "classnames": "2.2.6",
+    "classnames": "^2.2.6",
     "express": "^4.17.1",
     "formik": "^2.1.5",
     "ignore-styles": "^5.0.1",
@@ -24,7 +24,8 @@
     "react-google-maps": "9.4.5",
     "react-router-dom": "5.1.2",
     "react-scripts": "3.4.1",
-    "reactstrap": "8.4.1"
+    "reactstrap": "8.4.1",
+    "yup": "^0.29.3"
   },
   "scripts": {
     "start": "react-scripts start",
