@@ -24,6 +24,7 @@ import SubCategoryTable from './SubCategoryTable';
 import TagTable from './TagTable';
 import UserTable from './UserTable';
 import history from '../../history';
+import AddTagModal from '../../modals/AddTagModal';
 
 export default props => {
 
@@ -81,14 +82,15 @@ export default props => {
                     {
                         props.showAddBtn
                             ? <div className="col text-right">
-                                <Button
-                                    color="primary"
-                                    href="#pablo"
-                                    onClick={e => addNew(e, props.addNewBtnData.path)}
-                                    size="sm"
-                                >
-                                    {props.addNewBtnData.text}
-                                </Button>
+                                {props.page === 'tag'
+                                    ? <AddTagModal btnLabel='Add Tag' />
+                                    : <Button
+                                        color="primary"
+                                        onClick={e => addNew(e, props.addNewBtnData.path)}
+                                        size="sm"
+                                    >
+                                        {props.addNewBtnData.text}
+                                    </Button>}
                             </div>
                             : null
                     }
