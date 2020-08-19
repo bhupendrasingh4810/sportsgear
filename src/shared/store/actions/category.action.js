@@ -1,7 +1,7 @@
 import {
-    GET_CATEGORIES_LIST,
-    GET_CATEGORIES_LIST_SUCCESS,
-    GET_CATEGORIES_LIST_FAILURE,
+    GET_CATEGORY_LIST,
+    GET_CATEGORY_LIST_SUCCESS,
+    GET_CATEGORY_LIST_FAILURE,
     
     GET_CATEGORY,
     GET_CATEGORY_SUCCESS,
@@ -24,124 +24,124 @@ import {
     CHANGE_CATEGORY_STATUS_FAILURE
 } from '../types/category.types';
 
-function getCategoriesList() {
+export default function getCategoryList() {
     return {
-        type: GET_CATEGORIES_LIST
+        type: GET_CATEGORY_LIST
     };
 }
 
-function getCategoriesListSuccess() {
+export default function getCategoryListSuccess() {
     return {
-        type: GET_CATEGORIES_LIST_SUCCESS,
-        categories
+        type: GET_CATEGORY_LIST_SUCCESS,
+        payload
     };
 }
 
-function getCategoriesListFailure() {
+export default function getCategoryListFailure() {
     return {
-        type: GET_CATEGORIES_LIST_FAILURE,
-        error
+        type: GET_CATEGORY_LIST_FAILURE,
+        payload
     };
 }
 
-function getCategory() {
+export default function getCategory() {
     return {
         type: GET_CATEGORY
     };
 }
 
-function getCategorySuccess() {
+export default function getCategorySuccess() {
     return {
         type: GET_CATEGORY_SUCCESS,
-        category
+        payload
     };
 }
 
-function getCategoryFailure() {
+export default function getCategoryFailure() {
     return {
         type: GET_CATEGORY_FAILURE,
-        error
+        payload
     };
 }
 
-function addCategory() {
+export default function addCategory() {
     return {
         type: ADD_CATEGORY
     };
 }
 
-function addCategorySuccess() {
+export default function addCategorySuccess() {
     return {
         type: ADD_CATEGORY_SUCCESS,
-        category
+        payload
     };
 }
 
-function addCategoryFailure() {
+export default function addCategoryFailure() {
     return {
         type: ADD_CATEGORY_FAILURE,
-        error
+        payload
     };
 }
 
-function updateCategory() {
+export default function updateCategory() {
     return {
         type: UPDATE_CATEGORY
     };
 }
 
-function updateCategorySuccess() {
+export default function updateCategorySuccess() {
     return {
         type: UPDATE_CATEGORY_SUCCESS,
-        Category
+        payload
     };
 }
 
-function updateCategoryFailure() {
+export default function updateCategoryFailure() {
     return {
         type: UPDATE_CATEGORY_FAILURE,
-        error
+        payload
     };
 }
 
 
-function deleteCategory() {
+export default function deleteCategory() {
     return {
         type: DELETE_CATEGORY
     };
 }
 
-function deleteCategorySuccess() {
+export default function deleteCategorySuccess() {
     return {
         type: DELETE_CATEGORY_SUCCESS,
-        response
+        payload
     };
 }
 
-function deleteCategoryFailure() {
+export default function deleteCategoryFailure() {
     return {
         type: DELETE_CATEGORY_FAILURE,
-        error
+        payload
     };
 }
 
 
-function changeCategoryStatus() {
+export default function changeCategoryStatus() {
     return {
         type: CHANGE_CATEGORY_STATUS
     };
 }
 
-function changeCategoryStatusSuccess() {
+export default function changeCategoryStatusSuccess() {
     return {
         type: CHANGE_CATEGORY_STATUS_SUCCESS,
-        response
+        payload
     };
 }
 
-function changeCategoryStatusFailure() {
+export default function changeCategoryStatusFailure() {
     return {
         type: CHANGE_CATEGORY_STATUS_FAILURE,
-        error
+        payload
     };
 }

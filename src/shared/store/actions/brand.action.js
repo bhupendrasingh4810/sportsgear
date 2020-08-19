@@ -1,7 +1,7 @@
 import {
-    GET_BRANDS_LIST,
-    GET_BRANDS_LIST_SUCCESS,
-    GET_BRANDS_LIST_FAILURE,
+    GET_BRAND_LIST,
+    GET_BRAND_LIST_SUCCESS,
+    GET_BRAND_LIST_FAILURE,
     
     GET_BRAND,
     GET_BRAND_SUCCESS,
@@ -24,124 +24,124 @@ import {
     CHANGE_BRAND_STATUS_FAILURE
 } from '../types/brand.types';
 
-function getBrandsList() {
+export default function getBrandList() {
     return {
-        type: GET_BRANDS_LIST
+        type: GET_BRAND_LIST
     };
 }
 
-function getBrandsListSuccess() {
+export default function getBrandListSuccess() {
     return {
-        type: GET_BRANDS_LIST_SUCCESS,
-        brands
+        type: GET_BRAND_LIST_SUCCESS,
+        payload
     };
 }
 
-function getBrandsListFailure() {
+export default function getBrandListFailure() {
     return {
-        type: GET_BRANDS_LIST_FAILURE,
-        error
+        type: GET_BRAND_LIST_FAILURE,
+        payload
     };
 }
 
-function getBrand() {
+export default function getBrand() {
     return {
         type: GET_BRAND
     };
 }
 
-function getBrandSuccess() {
+export default function getBrandSuccess() {
     return {
         type: GET_BRAND_SUCCESS,
-        brand
+        payload
     };
 }
 
-function getBrandFailure() {
+export default function getBrandFailure() {
     return {
         type: GET_BRAND_FAILURE,
-        error
+        payload
     };
 }
 
-function addBrand() {
+export default function addBrand() {
     return {
         type: ADD_BRAND
     };
 }
 
-function addBrandSuccess() {
+export default function addBrandSuccess() {
     return {
         type: ADD_BRAND_SUCCESS,
-        brand
+        payload
     };
 }
 
-function addBrandFailure() {
+export default function addBrandFailure() {
     return {
         type: ADD_BRAND_FAILURE,
-        error
+        payload
     };
 }
 
-function updateBrand() {
+export default function updateBrand() {
     return {
         type: UPDATE_BRAND
     };
 }
 
-function updateBrandSuccess() {
+export default function updateBrandSuccess() {
     return {
         type: UPDATE_BRAND_SUCCESS,
-        brand
+        payload
     };
 }
 
-function updateBrandFailure() {
+export default function updateBrandFailure() {
     return {
         type: UPDATE_BRAND_FAILURE,
-        error
+        payload
     };
 }
 
 
-function deleteBrand() {
+export default function deleteBrand() {
     return {
         type: DELETE_BRAND
     };
 }
 
-function deleteBrandSuccess() {
+export default function deleteBrandSuccess() {
     return {
         type: DELETE_BRAND_SUCCESS,
-        response
+        payload
     };
 }
 
-function deleteBrandFailure() {
+export default function deleteBrandFailure() {
     return {
         type: DELETE_BRAND_FAILURE,
-        error
+        payload
     };
 }
 
 
-function changeBrandStatus() {
+export default function changeBrandStatus() {
     return {
         type: CHANGE_BRAND_STATUS
     };
 }
 
-function changeBrandStatusSuccess() {
+export default function changeBrandStatusSuccess() {
     return {
         type: CHANGE_BRAND_STATUS_SUCCESS,
-        response
+        payload
     };
 }
 
-function changeBrandStatusFailure() {
+export default function changeBrandStatusFailure() {
     return {
         type: CHANGE_BRAND_STATUS_FAILURE,
-        error
+        payload
     };
 }

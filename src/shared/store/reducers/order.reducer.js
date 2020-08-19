@@ -27,7 +27,7 @@ const initialState = {
     error: undefined
 }
 
-export default function ordersReducer(state = initialState, action) {
+export default function orderReducer(state = initialState, action) {
     switch (action.type) {
         case GET_ORDER_LIST:
         case GET_ORDER:
@@ -41,7 +41,7 @@ export default function ordersReducer(state = initialState, action) {
         case GET_ORDER_LIST_SUCCESS:
             return {
                 ...state,
-                orders: action.orders,
+                orders: action.payload,
                 isLoading: false
             }
         case GET_ORDER_SUCCESS:
@@ -51,7 +51,7 @@ export default function ordersReducer(state = initialState, action) {
             return {
                 ...state,
                 isLoading: false,
-                order: action.order
+                order: action.payload
             }
         case GET_ORDER_LIST_FAILURE:
         case GET_ORDER_FAILURE:
@@ -60,7 +60,7 @@ export default function ordersReducer(state = initialState, action) {
         case CHANGE_ORDER_STATUS_FAILURE:
             return {
                 ...state,
-                error: action.error,
+                error: action.payload,
                 isLoading: false
             }
         default:

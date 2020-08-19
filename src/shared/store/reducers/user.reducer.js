@@ -1,7 +1,7 @@
 import {
-    GET_USERS_LIST,
-    GET_USERS_LIST_SUCCESS,
-    GET_USERS_LIST_FAILURE,
+    GET_USER_LIST,
+    GET_USER_LIST_SUCCESS,
+    GET_USER_LIST_FAILURE,
 
     GET_USER,
     GET_USER_SUCCESS,
@@ -31,9 +31,9 @@ const initialState = {
     error: undefined
 }
 
-export default function usersReducer(state = initialState, action) {
+export default function userReducer(state = initialState, action) {
     switch (action.type) {
-        case GET_USERS_LIST:
+        case GET_USER_LIST:
         case GET_USER:
         case ADD_USER:
         case UPDATE_USER:
@@ -43,10 +43,10 @@ export default function usersReducer(state = initialState, action) {
                 ...state,
                 isLoading: true
             }
-        case GET_USERS_LIST_SUCCESS:
+        case GET_USER_LIST_SUCCESS:
             return {
                 ...state,
-                users: action.users,
+                users: action.payload,
                 isLoading: false
             }
         case GET_USER_SUCCESS:
@@ -56,14 +56,14 @@ export default function usersReducer(state = initialState, action) {
             return {
                 ...state,
                 isLoading: false,
-                user: action.user
+                user: action.payload
             }
         case DELETE_USER_SUCCESS:
             return {
                 ...state,
                 isLoading: false
             }
-        case GET_USERS_LIST_FAILURE:
+        case GET_USER_LIST_FAILURE:
         case GET_USER_FAILURE:
         case ADD_USER_FAILURE:
         case UPDATE_USER_FAILURE:
@@ -71,7 +71,7 @@ export default function usersReducer(state = initialState, action) {
         case CHANGE_USER_STATUS_FAILURE:
             return {
                 ...state,
-                error: action.error,
+                error: action.payload,
                 isLoading: false
             }
         default:

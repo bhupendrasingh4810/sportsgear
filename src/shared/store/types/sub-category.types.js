@@ -1,6 +1,6 @@
-export const GET_SUB_CATEGORIES_LIST = '[Sub Category] Get Sub Categories List';
-export const GET_SUB_CATEGORIES_LIST_SUCCESS = '[Sub Category] Get Sub Categories List Success';
-export const GET_SUB_CATEGORIES_LIST_FAILURE = '[Sub Category] Get Sub Categories List Failure';
+export const GET_SUB_CATEGORY_LIST = '[Sub Category] Get Sub Category List';
+export const GET_SUB_CATEGORY_LIST_SUCCESS = '[Sub Category] Get Sub Category List Success';
+export const GET_SUB_CATEGORY_LIST_FAILURE = '[Sub Category] Get Sub Category List Failure';
 
 export const GET_SUB_CATEGORY = '[Sub Category] Get Sub Category';
 export const GET_SUB_CATEGORY_SUCCESS = '[Sub Category] Get Sub Category Success';

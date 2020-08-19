@@ -1,6 +1,6 @@
-export const GET_ARTICLES_LIST = '[Article] Get Articles List';
-export const GET_ARTICLES_LIST_SUCCESS = '[Article] Get Articles List Success';
-export const GET_ARTICLES_LIST_FAILURE = '[Article] Get Articles List Failure';
+export const GET_ARTICLE_LIST = '[Article] Get Article List';
+export const GET_ARTICLE_LIST_SUCCESS = '[Article] Get Article List Success';
+export const GET_ARTICLE_LIST_FAILURE = '[Article] Get Article List Failure';
 
 export const GET_ARTICLE = '[Article] Get Article';
 export const GET_ARTICLE_SUCCESS = '[Article] Get Article Success';

@@ -1,6 +1,6 @@
-export const GET_SECTIONS_LIST = '[Section] Get Sections List';
-export const GET_SECTIONS_LIST_SUCCESS = '[Section] Get Sections List Success';
-export const GET_SECTIONS_LIST_FAILURE = '[Section] Get Sections List Failure';
+export const GET_SECTION_LIST = '[Section] Get Section List';
+export const GET_SECTION_LIST_SUCCESS = '[Section] Get Section List Success';
+export const GET_SECTION_LIST_FAILURE = '[Section] Get Section List Failure';
 
 export const GET_SECTION = '[Section] Get Section';
 export const GET_SECTION_SUCCESS = '[Section] Get Section Success';

@@ -1,6 +1,6 @@
-export const GET_TAGS_LIST = '[Tag] Get Tags List';
-export const GET_TAGS_LIST_SUCCESS = '[Tag] Get Tags List Success';
-export const GET_TAGS_LIST_FAILURE = '[Tag] Get Tags List Failure';
+export const GET_TAG_LIST = '[Tag] Get Tag List';
+export const GET_TAG_LIST_SUCCESS = '[Tag] Get Tag List Success';
+export const GET_TAG_LIST_FAILURE = '[Tag] Get Tag List Failure';
 
 export const GET_TAG = '[Tag] Get Tag';
 export const GET_TAG_SUCCESS = '[Tag] Get Tag Success';

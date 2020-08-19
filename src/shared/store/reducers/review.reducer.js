@@ -1,7 +1,7 @@
 import {
-    GET_REVIEWS_LIST,
-    GET_REVIEWS_LIST_SUCCESS,
-    GET_REVIEWS_LIST_FAILURE,
+    GET_REVIEW_LIST,
+    GET_REVIEW_LIST_SUCCESS,
+    GET_REVIEW_LIST_FAILURE,
 
     GET_REVIEW,
     GET_REVIEW_SUCCESS,
@@ -31,9 +31,9 @@ const initialState = {
     error: undefined
 }
 
-export default function reviewsReducer(state = initialState, action) {
+export default function reviewReducer(state = initialState, action) {
     switch (action.type) {
-        case GET_REVIEWS_LIST:
+        case GET_REVIEW_LIST:
         case GET_REVIEW:
         case ADD_REVIEW:
         case UPDATE_REVIEW:
@@ -43,10 +43,10 @@ export default function reviewsReducer(state = initialState, action) {
                 ...state,
                 isLoading: true
             }
-        case GET_REVIEWS_LIST_SUCCESS:
+        case GET_REVIEW_LIST_SUCCESS:
             return {
                 ...state,
-                reviews: action.reviews,
+                reviews: action.payload,
                 isLoading: false
             }
         case GET_REVIEW_SUCCESS:
@@ -56,14 +56,14 @@ export default function reviewsReducer(state = initialState, action) {
             return {
                 ...state,
                 isLoading: false,
-                review: action.review
+                review: action.payload
             }
         case DELETE_REVIEW_SUCCESS:
             return {
                 ...state,
                 isLoading: false
             }
-        case GET_REVIEWS_LIST_FAILURE:
+        case GET_REVIEW_LIST_FAILURE:
         case GET_REVIEW_FAILURE:
         case ADD_REVIEW_FAILURE:
         case UPDATE_REVIEW_FAILURE:
@@ -71,7 +71,7 @@ export default function reviewsReducer(state = initialState, action) {
         case CHANGE_REVIEW_STATUS_FAILURE:
             return {
                 ...state,
-                error: action.error,
+                error: action.payload,
                 isLoading: false
             }
         default:

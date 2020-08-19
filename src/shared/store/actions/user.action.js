@@ -1,7 +1,7 @@
 import {
-    GET_USERS_LIST,
-    GET_USERS_LIST_SUCCESS,
-    GET_USERS_LIST_FAILURE,
+    GET_USER_LIST,
+    GET_USER_LIST_SUCCESS,
+    GET_USER_LIST_FAILURE,
 
     GET_USER,
     GET_USER_SUCCESS,
@@ -24,124 +24,124 @@ import {
     CHANGE_USER_STATUS_FAILURE
 } from '../types/user.types';
 
-function getUsersList() {
+export default function getUserList() {
     return {
-        type: GET_USERS_LIST
+        type: GET_USER_LIST
     };
 }
 
-function getUsersListSuccess() {
+export default function getUserListSuccess() {
     return {
-        type: GET_USERS_LIST_SUCCESS,
-        users
+        type: GET_USER_LIST_SUCCESS,
+        payload
     };
 }
 
-function getUsersListFailure() {
+export default function getUserListFailure() {
     return {
-        type: GET_USERS_LIST_FAILURE,
-        error
+        type: GET_USER_LIST_FAILURE,
+        payload
     };
 }
 
-function getUser() {
+export default function getUser() {
     return {
         type: GET_USER
     };
 }
 
-function getUserSuccess() {
+export default function getUserSuccess() {
     return {
         type: GET_USER_SUCCESS,
-        user
+        payload
     };
 }
 
-function getUserFailure() {
+export default function getUserFailure() {
     return {
         type: GET_USER_FAILURE,
-        error
+        payload
     };
 }
 
-function addUser() {
+export default function addUser() {
     return {
         type: ADD_USER
     };
 }
 
-function addUserSuccess() {
+export default function addUserSuccess() {
     return {
         type: ADD_USER_SUCCESS,
-        user
+        payload
     };
 }
 
-function addUserFailure() {
+export default function addUserFailure() {
     return {
         type: ADD_USER_FAILURE,
-        error
+        payload
     };
 }
 
-function updateUser() {
+export default function updateUser() {
     return {
         type: UPDATE_USER
     };
 }
 
-function updateUserSuccess() {
+export default function updateUserSuccess() {
     return {
         type: UPDATE_USER_SUCCESS,
-        user
+        payload
     };
 }
 
-function updateUserFailure() {
+export default function updateUserFailure() {
     return {
         type: UPDATE_USER_FAILURE,
-        error
+        payload
     };
 }
 
 
-function deleteUser() {
+export default function deleteUser() {
     return {
         type: DELETE_USER
     };
 }
 
-function deleteUserSuccess() {
+export default function deleteUserSuccess() {
     return {
         type: DELETE_USER_SUCCESS,
-        response
+        payload
     };
 }
 
-function deleteUserFailure() {
+export default function deleteUserFailure() {
     return {
         type: DELETE_USER_FAILURE,
-        error
+        payload
     };
 }
 
 
-function changeUserStatus() {
+export default function changeUserStatus() {
     return {
         type: CHANGE_USER_STATUS
     };
 }
 
-function changeUserStatusSuccess() {
+export default function changeUserStatusSuccess() {
     return {
         type: CHANGE_USER_STATUS_SUCCESS,
-        response
+        payload
     };
 }
 
-function changeUserStatusFailure() {
+export default function changeUserStatusFailure() {
     return {
         type: CHANGE_USER_STATUS_FAILURE,
-        error
+        payload
     };
 }

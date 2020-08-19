@@ -1,7 +1,7 @@
 import {
-    GET_SECTIONS_LIST,
-    GET_SECTIONS_LIST_SUCCESS,
-    GET_SECTIONS_LIST_FAILURE,
+    GET_SECTION_LIST,
+    GET_SECTION_LIST_SUCCESS,
+    GET_SECTION_LIST_FAILURE,
     
     GET_SECTION,
     GET_SECTION_SUCCESS,
@@ -24,124 +24,124 @@ import {
     CHANGE_SECTION_STATUS_FAILURE
 } from '../types/section.types';
 
-function getSectionsList() {
+export default function getSectionList() {
     return {
-        type: GET_SECTIONS_LIST
+        type: GET_SECTION_LIST
     };
 }
 
-function getSectionsListSuccess() {
+export default function getSectionListSuccess() {
     return {
-        type: GET_SECTIONS_LIST_SUCCESS,
-        sections
+        type: GET_SECTION_LIST_SUCCESS,
+        payload
     };
 }
 
-function getSectionsListFailure() {
+export default function getSectionListFailure() {
     return {
-        type: GET_SECTIONS_LIST_FAILURE,
-        error
+        type: GET_SECTION_LIST_FAILURE,
+        payload
     };
 }
 
-function getSection() {
+export default function getSection() {
     return {
         type: GET_SECTION
     };
 }
 
-function getSectionSuccess() {
+export default function getSectionSuccess() {
     return {
         type: GET_SECTION_SUCCESS,
-        section
+        payload
     };
 }
 
-function getSectionFailure() {
+export default function getSectionFailure() {
     return {
         type: GET_SECTION_FAILURE,
-        error
+        payload
     };
 }
 
-function addSection() {
+export default function addSection() {
     return {
         type: ADD_SECTION
     };
 }
 
-function addSectionSuccess() {
+export default function addSectionSuccess() {
     return {
         type: ADD_SECTION_SUCCESS,
-        section
+        payload
     };
 }
 
-function addSectionFailure() {
+export default function addSectionFailure() {
     return {
         type: ADD_SECTION_FAILURE,
-        error
+        payload
     };
 }
 
-function updateSection() {
+export default function updateSection() {
     return {
         type: UPDATE_SECTION
     };
 }
 
-function updateSectionSuccess() {
+export default function updateSectionSuccess() {
     return {
         type: UPDATE_SECTION_SUCCESS,
-        section
+        payload
     };
 }
 
-function updateSectionFailure() {
+export default function updateSectionFailure() {
     return {
         type: UPDATE_SECTION_FAILURE,
-        error
+        payload
     };
 }
 
 
-function deleteSection() {
+export default function deleteSection() {
     return {
         type: DELETE_SECTION
     };
 }
 
-function deleteSectionSuccess() {
+export default function deleteSectionSuccess() {
     return {
         type: DELETE_SECTION_SUCCESS,
-        response
+        payload
     };
 }
 
-function deleteSectionFailure() {
+export default function deleteSectionFailure() {
     return {
         type: DELETE_SECTION_FAILURE,
-        error
+        payload
     };
 }
 
 
-function changeSectionStatus() {
+export default function changeSectionStatus() {
     return {
         type: CHANGE_SECTION_STATUS
     };
 }
 
-function changeSectionStatusSuccess() {
+export default function changeSectionStatusSuccess() {
     return {
         type: CHANGE_SECTION_STATUS_SUCCESS,
-        response
+        payload
     };
 }
 
-function changeSectionStatusFailure() {
+export default function changeSectionStatusFailure() {
     return {
         type: CHANGE_SECTION_STATUS_FAILURE,
-        error
+        payload
     };
 }

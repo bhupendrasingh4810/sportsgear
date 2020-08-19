@@ -2,146 +2,146 @@ import {
     GET_ARTICLES_LIST,
     GET_ARTICLES_LIST_SUCCESS,
     GET_ARTICLES_LIST_FAILURE,
-    
+
     GET_ARTICLE,
     GET_ARTICLE_SUCCESS,
     GET_ARTICLE_FAILURE,
-    
+
     ADD_ARTICLE,
     ADD_ARTICLE_SUCCESS,
     ADD_ARTICLE_FAILURE,
-    
+
     UPDATE_ARTICLE,
     UPDATE_ARTICLE_SUCCESS,
     UPDATE_ARTICLE_FAILURE,
-    
+
     DELETE_ARTICLE,
     DELETE_ARTICLE_SUCCESS,
     DELETE_ARTICLE_FAILURE,
-    
+
     CHANGE_ARTICLE_STATUS,
     CHANGE_ARTICLE_STATUS_SUCCESS,
     CHANGE_ARTICLE_STATUS_FAILURE
 } from '../types/article.types';
 
-function getArticlesList() {
+export default function getArticleList() {
     return {
         type: GET_ARTICLES_LIST
     };
 }
 
-function getArticlesListSuccess() {
+export default function getArticleListSuccess() {
     return {
         type: GET_ARTICLES_LIST_SUCCESS,
-        articles
+        payload
     };
 }
 
-function getArticlesListFailure() {
+export default function getArticleListFailure() {
     return {
         type: GET_ARTICLES_LIST_FAILURE,
-        error
+        payload
     };
 }
 
-function getArticle() {
+export default function getArticle() {
     return {
         type: GET_ARTICLE
     };
 }
 
-function getArticleSuccess() {
+export default function getArticleSuccess() {
     return {
         type: GET_ARTICLE_SUCCESS,
-        article
+        payload
     };
 }
 
-function getArticleFailure() {
+export default function getArticleFailure() {
     return {
         type: GET_ARTICLE_FAILURE,
-        error
+        payload
     };
 }
 
-function addArticle() {
+export default function addArticle() {
     return {
         type: ADD_ARTICLE
     };
 }
 
-function addArticleSuccess() {
+export default function addArticleSuccess() {
     return {
         type: ADD_ARTICLE_SUCCESS,
-        article
+        payload
     };
 }
 
-function addArticleFailure() {
+export default function addArticleFailure() {
     return {
         type: ADD_ARTICLE_FAILURE,
-        error
+        payload
     };
 }
 
-function updateArticle() {
+export default function updateArticle() {
     return {
         type: UPDATE_ARTICLE
     };
 }
 
-function updateArticleSuccess() {
+export default function updateArticleSuccess() {
     return {
         type: UPDATE_ARTICLE_SUCCESS,
-        article
+        payload
     };
 }
 
-function updateArticleFailure() {
+export default function updateArticleFailure() {
     return {
         type: UPDATE_ARTICLE_FAILURE,
-        error
+        payload
     };
 }
 
 
-function deleteArticle() {
+export default function deleteArticle() {
     return {
         type: DELETE_ARTICLE
     };
 }
 
-function deleteArticleSuccess() {
+export default function deleteArticleSuccess() {
     return {
         type: DELETE_ARTICLE_SUCCESS,
-        response
+        payload
     };
 }
 
-function deleteArticleFailure() {
+export default function deleteArticleFailure() {
     return {
         type: DELETE_ARTICLE_FAILURE,
-        error
+        payload
     };
 }
 
 
-function changeArticleStatus() {
+export default function changeArticleStatus() {
     return {
         type: CHANGE_ARTICLE_STATUS
     };
 }
 
-function changeArticleStatusSuccess() {
+export default function changeArticleStatusSuccess() {
     return {
         type: CHANGE_ARTICLE_STATUS_SUCCESS,
-        response
+        payload
     };
 }
 
-function changeArticleStatusFailure() {
+export default function changeArticleStatusFailure() {
     return {
         type: CHANGE_ARTICLE_STATUS_FAILURE,
-        error
+        payload
     };
 }

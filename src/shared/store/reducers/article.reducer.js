@@ -1,7 +1,7 @@
 import {
-    GET_ARTICLES_LIST,
-    GET_ARTICLES_LIST_SUCCESS,
-    GET_ARTICLES_LIST_FAILURE,
+    GET_ARTICLE_LIST,
+    GET_ARTICLE_LIST_SUCCESS,
+    GET_ARTICLE_LIST_FAILURE,
 
     GET_ARTICLE,
     GET_ARTICLE_SUCCESS,
@@ -31,9 +31,9 @@ const initialState = {
     error: undefined
 }
 
-export default function articlesReducer(state = initialState, action) {
+export default function articleReducer(state = initialState, action) {
     switch (action.type) {
-        case GET_ARTICLES_LIST:
+        case GET_ARTICLE_LIST:
         case GET_ARTICLE:
         case ADD_ARTICLE:
         case UPDATE_ARTICLE:
@@ -43,10 +43,10 @@ export default function articlesReducer(state = initialState, action) {
                 ...state,
                 isLoading: true
             }
-        case GET_ARTICLES_LIST_SUCCESS:
+        case GET_ARTICLE_LIST_SUCCESS:
             return {
                 ...state,
-                articles: action.articles,
+                articles: action.payload,
                 isLoading: false
             }
         case GET_ARTICLE_SUCCESS:
@@ -56,14 +56,14 @@ export default function articlesReducer(state = initialState, action) {
             return {
                 ...state,
                 isLoading: false,
-                article: action.article
+                article: action.payload
             }
         case DELETE_ARTICLE_SUCCESS:
             return {
                 ...state,
                 isLoading: false
             }
-        case GET_ARTICLES_LIST_FAILURE:
+        case GET_ARTICLE_LIST_FAILURE:
         case GET_ARTICLE_FAILURE:
         case ADD_ARTICLE_FAILURE:
         case UPDATE_ARTICLE_FAILURE:
@@ -71,7 +71,7 @@ export default function articlesReducer(state = initialState, action) {
         case CHANGE_ARTICLE_STATUS_FAILURE:
             return {
                 ...state,
-                error: action.error,
+                error: action.payload,
                 isLoading: false
             }
         default:

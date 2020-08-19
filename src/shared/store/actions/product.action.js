@@ -1,7 +1,7 @@
 import {
-    GET_PRODUCTS_LIST,
-    GET_PRODUCTS_LIST_SUCCESS,
-    GET_PRODUCTS_LIST_FAILURE,
+    GET_PRODUCT_LIST,
+    GET_PRODUCT_LIST_SUCCESS,
+    GET_PRODUCT_LIST_FAILURE,
     
     GET_PRODUCT,
     GET_PRODUCT_SUCCESS,
@@ -24,124 +24,124 @@ import {
     CHANGE_PRODUCT_STATUS_FAILURE
 } from '../types/product.types';
 
-function getProductsList() {
+export default function getProductList() {
     return {
-        type: GET_PRODUCTS_LIST
+        type: GET_PRODUCT_LIST
     };
 }
 
-function getProductsListSuccess() {
+export default function getProductListSuccess() {
     return {
-        type: GET_PRODUCTS_LIST_SUCCESS,
-        products
+        type: GET_PRODUCT_LIST_SUCCESS,
+        payload
     };
 }
 
-function getProductsListFailure() {
+export default function getProductListFailure() {
     return {
-        type: GET_PRODUCTS_LIST_FAILURE,
-        error
+        type: GET_PRODUCT_LIST_FAILURE,
+        payload
     };
 }
 
-function getProduct() {
+export default function getProduct() {
     return {
         type: GET_PRODUCT
     };
 }
 
-function getProductSuccess() {
+export default function getProductuccess() {
     return {
         type: GET_PRODUCT_SUCCESS,
-        product
+        payload
     };
 }
 
-function getProductFailure() {
+export default function getProductFailure() {
     return {
         type: GET_PRODUCT_FAILURE,
-        error
+        payload
     };
 }
 
-function addProduct() {
+export default function addProduct() {
     return {
         type: ADD_PRODUCT
     };
 }
 
-function addProductSuccess() {
+export default function addProductuccess() {
     return {
         type: ADD_PRODUCT_SUCCESS,
-        product
+        payload
     };
 }
 
-function addProductFailure() {
+export default function addProductFailure() {
     return {
         type: ADD_PRODUCT_FAILURE,
-        error
+        payload
     };
 }
 
-function updateProduct() {
+export default function updateProduct() {
     return {
         type: UPDATE_PRODUCT
     };
 }
 
-function updateProductSuccess() {
+export default function updateProductuccess() {
     return {
         type: UPDATE_PRODUCT_SUCCESS,
-        product
+        payload
     };
 }
 
-function updateProductFailure() {
+export default function updateProductFailure() {
     return {
         type: UPDATE_PRODUCT_FAILURE,
-        error
+        payload
     };
 }
 
 
-function deleteProduct() {
+export default function deleteProduct() {
     return {
         type: DELETE_PRODUCT
     };
 }
 
-function deleteProductSuccess() {
+export default function deleteProductuccess() {
     return {
         type: DELETE_PRODUCT_SUCCESS,
         response
     };
 }
 
-function deleteProductFailure() {
+export default function deleteProductFailure() {
     return {
         type: DELETE_PRODUCT_FAILURE,
-        error
+        payload
     };
 }
 
 
-function changeProductStatus() {
+export default function changeProducttatus() {
     return {
         type: CHANGE_PRODUCT_STATUS
     };
 }
 
-function changeProductStatusSuccess() {
+export default function changeProducttatusSuccess() {
     return {
         type: CHANGE_PRODUCT_STATUS_SUCCESS,
-        response
+        payload
     };
 }
 
-function changeProductStatusFailure() {
+export default function changeProducttatusFailure() {
     return {
         type: CHANGE_PRODUCT_STATUS_FAILURE,
-        error
+        payload
     };
 }

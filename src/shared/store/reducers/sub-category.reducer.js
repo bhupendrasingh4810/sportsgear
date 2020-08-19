@@ -1,7 +1,7 @@
 import {
-    GET_SUB_CATEGORIES_LIST,
-    GET_SUB_CATEGORIES_LIST_SUCCESS,
-    GET_SUB_CATEGORIES_LIST_FAILURE,
+    GET_SUB_CATEGORY_LIST,
+    GET_SUB_CATEGORY_LIST_SUCCESS,
+    GET_SUB_CATEGORY_LIST_FAILURE,
 
     GET_SUB_CATEGORY,
     GET_SUB_CATEGORY_SUCCESS,
@@ -31,9 +31,9 @@ const initialState = {
     error: undefined
 }
 
-export default function subCategoriesReducer(state = initialState, action) {
+export default function subCategoryReducer(state = initialState, action) {
     switch (action.type) {
-        case GET_SUB_CATEGORIES_LIST:
+        case GET_SUB_CATEGORY_LIST:
         case GET_SUB_CATEGORY:
         case ADD_SUB_CATEGORY:
         case UPDATE_SUB_CATEGORY:
@@ -43,10 +43,10 @@ export default function subCategoriesReducer(state = initialState, action) {
                 ...state,
                 isLoading: true
             }
-        case GET_SUB_CATEGORIES_LIST_SUCCESS:
+        case GET_SUB_CATEGORY_LIST_SUCCESS:
             return {
                 ...state,
-                subCategories: action.subCategories,
+                subCategories: action.payload,
                 isLoading: false
             }
         case GET_SUB_CATEGORY_SUCCESS:
@@ -56,14 +56,14 @@ export default function subCategoriesReducer(state = initialState, action) {
             return {
                 ...state,
                 isLoading: false,
-                subCategory: action.subCategory
+                subCategory: action.payload
             }
         case DELETE_SUB_CATEGORY_SUCCESS:
             return {
                 ...state,
                 isLoading: false
             }
-        case GET_SUB_CATEGORIES_LIST_FAILURE:
+        case GET_SUB_CATEGORY_LIST_FAILURE:
         case GET_SUB_CATEGORY_FAILURE:
         case ADD_SUB_CATEGORY_FAILURE:
         case UPDATE_SUB_CATEGORY_FAILURE:
@@ -71,7 +71,7 @@ export default function subCategoriesReducer(state = initialState, action) {
         case CHANGE_SUB_CATEGORY_STATUS_FAILURE:
             return {
                 ...state,
-                error: action.error,
+                error: action.payload,
                 isLoading: false
             }
         default:

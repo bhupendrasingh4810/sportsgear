@@ -1,6 +1,6 @@
-export const GET_REVIEWS_LIST = '[Review] Get Reviews List';
-export const GET_REVIEWS_LIST_SUCCESS = '[Review] Get Reviews List Success';
-export const GET_REVIEWS_LIST_FAILURE = '[Review] Get Reviews List Failure';
+export const GET_REVIEW_LIST = '[Review] Get Review List';
+export const GET_REVIEW_LIST_SUCCESS = '[Review] Get Review List Success';
+export const GET_REVIEW_LIST_FAILURE = '[Review] Get Review List Failure';
 
 export const GET_REVIEW = '[Review] Get Review';
 export const GET_REVIEW_SUCCESS = '[Review] Get Review Success';

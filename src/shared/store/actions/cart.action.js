@@ -1,147 +1,121 @@
 import {
-    GET_CARTS_LIST,
-    GET_CARTS_LIST_SUCCESS,
-    GET_CARTS_LIST_FAILURE,
+    GET_CART_LIST,
+    GET_CART_LIST_SUCCESS,
+    GET_CART_LIST_FAILURE,
 
     GET_CART,
     GET_CART_SUCCESS,
     GET_CART_FAILURE,
-    
+
     ADD_CART,
     ADD_CART_SUCCESS,
     ADD_CART_FAILURE,
-    
+
     UPDATE_CART,
     UPDATE_CART_SUCCESS,
     UPDATE_CART_FAILURE,
-    
-    DELETE_CART,
-    DELETE_CART_SUCCESS,
-    DELETE_CART_FAILURE,
-    
+
     CHANGE_CART_TO_ORDER,
     CHANGE_CART_TO_ORDER_SUCCESS,
     CHANGE_CART_TO_ORDER_FAILURE
 } from '../types/cart.types';
 
-function getCartsList() {
+export default function getCartList() {
     return {
-        type: GET_CARTS_LIST
+        type: GET_CART_LIST
     };
 }
 
-function getCartsListSuccess() {
+export default function getCartListSuccess() {
     return {
-        type: GET_CARTS_LIST_SUCCESS,
-        carts
+        type: GET_CART_LIST_SUCCESS,
+        payload
     };
 }
 
-function getCartsListFailure() {
+export default function getCartListFailure() {
     return {
-        type: GET_CARTS_LIST_FAILURE,
-        error
+        type: GET_CART_LIST_FAILURE,
+        payload
     };
 }
 
-function getCart() {
+export default function getCart() {
     return {
         type: GET_CART
     };
 }
 
-function getCartSuccess() {
+export default function getCartSuccess() {
     return {
         type: GET_CART_SUCCESS,
-        cart
+        payload
     };
 }
 
-function getCartFailure() {
+export default function getCartFailure() {
     return {
         type: GET_CART_FAILURE,
-        error
+        payload
     };
 }
 
-function addCart() {
+export default function addCart() {
     return {
         type: ADD_CART
     };
 }
 
-function addCartSuccess() {
+export default function addCartSuccess() {
     return {
         type: ADD_CART_SUCCESS,
         cart
     };
 }
 
-function addCartFailure() {
+export default function addCartFailure() {
     return {
         type: ADD_CART_FAILURE,
-        error
+        payload
     };
 }
 
-function updateCart() {
+export default function updateCart() {
     return {
         type: UPDATE_CART
     };
 }
 
-function updateCartSuccess() {
+export default function updateCartSuccess() {
     return {
         type: UPDATE_CART_SUCCESS,
-        cart
+        payload
     };
 }
 
-function updateCartFailure() {
+export default function updateCartFailure() {
     return {
         type: UPDATE_CART_FAILURE,
-        error
+        payload
     };
 }
 
-
-function deleteCart() {
-    return {
-        type: DELETE_CART
-    };
-}
-
-function deleteCartSuccess() {
-    return {
-        type: DELETE_CART_SUCCESS,
-        response
-    };
-}
-
-function deleteCartFailure() {
-    return {
-        type: DELETE_CART_FAILURE,
-        error
-    };
-}
-
-
-function changeCartToOrder() {
+export default function changeCartToOrder() {
     return {
         type: CHANGE_CART_TO_ORDER
     };
 }
 
-function changeCartToOrderSuccess() {
+export default function changeCartToOrderSuccess() {
     return {
         type: CHANGE_CART_TO_ORDER_SUCCESS,
-        response
+        payload
     };
 }
 
-function changeCartToOrderFailure() {
+export default function changeCartToOrderFailure() {
     return {
         type: CHANGE_CART_TO_ORDER_FAILURE,
-        error
+        payload
     };
 }

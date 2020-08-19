@@ -1,6 +1,6 @@
-export const GET_PRODUCTS_LIST = '[Product] Get Products List';
-export const GET_PRODUCTS_LIST_SUCCESS = '[Product] Get Products List Success';
-export const GET_PRODUCTS_LIST_FAILURE = '[Product] Get Products List Failure';
+export const GET_PRODUCT_LIST = '[Product] Get Product List';
+export const GET_PRODUCT_LIST_SUCCESS = '[Product] Get Product List Success';
+export const GET_PRODUCT_LIST_FAILURE = '[Product] Get Product List Failure';
 
 export const GET_PRODUCT = '[Product] Get Product';
 export const GET_PRODUCT_SUCCESS = '[Product] Get Product Success';

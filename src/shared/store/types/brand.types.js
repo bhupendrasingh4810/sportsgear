@@ -1,6 +1,6 @@
-export const GET_BRANDS_LIST = '[Brand] Get Brands List';
-export const GET_BRANDS_LIST_SUCCESS = '[Brand] Get Brands List Success';
-export const GET_BRANDS_LIST_FAILURE = '[Brand] Get Brands List Failure';
+export const GET_BRAND_LIST = '[Brand] Get Brand List';
+export const GET_BRAND_LIST_SUCCESS = '[Brand] Get Brand List Success';
+export const GET_BRAND_LIST_FAILURE = '[Brand] Get Brand List Failure';
 
 export const GET_BRAND = '[Brand] Get Brand';
 export const GET_BRAND_SUCCESS = '[Brand] Get Brand Success';

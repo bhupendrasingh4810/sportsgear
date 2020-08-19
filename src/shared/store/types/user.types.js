@@ -1,6 +1,6 @@
-export const GET_USERS_LIST = '[User] Get Users List';
-export const GET_USERS_LIST_SUCCESS = '[User] Get Users List Success';
-export const GET_USERS_LIST_FAILURE = '[User] Get Users List Failure';
+export const GET_USER_LIST = '[User] Get User List';
+export const GET_USER_LIST_SUCCESS = '[User] Get User List Success';
+export const GET_USER_LIST_FAILURE = '[User] Get User List Failure';
 
 export const GET_USER = '[User] Get User';
 export const GET_USER_SUCCESS = '[User] Get User Success';

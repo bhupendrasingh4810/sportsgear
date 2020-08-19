@@ -1,7 +1,7 @@
 import {
-    GET_TAGS_LIST,
-    GET_TAGS_LIST_SUCCESS,
-    GET_TAGS_LIST_FAILURE,
+    GET_TAG_LIST,
+    GET_TAG_LIST_SUCCESS,
+    GET_TAG_LIST_FAILURE,
 
     GET_TAG,
     GET_TAG_SUCCESS,
@@ -24,124 +24,124 @@ import {
     CHANGE_TAG_STATUS_FAILURE
 } from '../types/tag.types';
 
-function getTagsList() {
+export default function getTagList() {
     return {
-        type: GET_TAGS_LIST
+        type: GET_TAG_LIST
     };
 }
 
-function getTagsListSuccess() {
+export default function getTagListSuccess() {
     return {
-        type: GET_TAGS_LIST_SUCCESS,
-        tags
+        type: GET_TAG_LIST_SUCCESS,
+        payload
     };
 }
 
-function getTagsListFailure() {
+export default function getTagListFailure() {
     return {
-        type: GET_TAGS_LIST_FAILURE,
-        error
+        type: GET_TAG_LIST_FAILURE,
+        payload
     };
 }
 
-function getTag() {
+export default function getTag() {
     return {
         type: GET_TAG
     };
 }
 
-function getTagSuccess() {
+export default function getTagSuccess() {
     return {
         type: GET_TAG_SUCCESS,
-        tag
+        payload
     };
 }
 
-function getTagFailure() {
+export default function getTagFailure() {
     return {
         type: GET_TAG_FAILURE,
-        error
+        payload
     };
 }
 
-function addTag() {
+export default function addTag() {
     return {
         type: ADD_TAG
     };
 }
 
-function addTagSuccess() {
+export default function addTagSuccess() {
     return {
         type: ADD_TAG_SUCCESS,
-        tag
+        payload
     };
 }
 
-function addTagFailure() {
+export default function addTagFailure() {
     return {
         type: ADD_TAG_FAILURE,
-        error
+        payload
     };
 }
 
-function updateTag() {
+export default function updateTag() {
     return {
         type: UPDATE_TAG
     };
 }
 
-function updateTagSuccess() {
+export default function updateTagSuccess() {
     return {
         type: UPDATE_TAG_SUCCESS,
-        tag
+        payload
     };
 }
 
-function updateTagFailure() {
+export default function updateTagFailure() {
     return {
         type: UPDATE_TAG_FAILURE,
-        error
+        payload
     };
 }
 
 
-function deleteTag() {
+export default function deleteTag() {
     return {
         type: DELETE_TAG
     };
 }
 
-function deleteTagSuccess() {
+export default function deleteTagSuccess() {
     return {
         type: DELETE_TAG_SUCCESS,
-        response
+        payload
     };
 }
 
-function deleteTagFailure() {
+export default function deleteTagFailure() {
     return {
         type: DELETE_TAG_FAILURE,
-        error
+        payload
     };
 }
 
 
-function changeTagStatus() {
+export default function changeTagStatus() {
     return {
         type: CHANGE_TAG_STATUS
     };
 }
 
-function changeTagStatusSuccess() {
+export default function changeTagStatusSuccess() {
     return {
         type: CHANGE_TAG_STATUS_SUCCESS,
-        response
+        payload
     };
 }
 
-function changeTagStatusFailure() {
+export default function changeTagStatusFailure() {
     return {
         type: CHANGE_TAG_STATUS_FAILURE,
-        error
+        payload
     };
 }

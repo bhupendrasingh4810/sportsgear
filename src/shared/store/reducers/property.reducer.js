@@ -1,7 +1,7 @@
 import {
-    GET_PROPERTIES_LIST,
-    GET_PROPERTIES_LIST_SUCCESS,
-    GET_PROPERTIES_LIST_FAILURE,
+    GET_PROPERTY_LIST,
+    GET_PROPERTY_LIST_SUCCESS,
+    GET_PROPERTY_LIST_FAILURE,
     GET_PROPERTY,
     GET_PROPERTY_SUCCESS,
     GET_PROPERTY_FAILURE,
@@ -26,9 +26,9 @@ const initialState = {
     error: undefined
 }
 
-export default function propertiesReducer(state = initialState, action) {
+export default function propertyReducer(state = initialState, action) {
     switch (action.type) {
-        case GET_PROPERTIES_LIST:
+        case GET_PROPERTY_LIST:
         case GET_PROPERTY:
         case ADD_PROPERTY:
         case UPDATE_PROPERTY:
@@ -38,10 +38,10 @@ export default function propertiesReducer(state = initialState, action) {
                 ...state,
                 isLoading: true
             }
-        case GET_PROPERTIES_LIST_SUCCESS:
+        case GET_PROPERTY_LIST_SUCCESS:
             return {
                 ...state,
-                properties: action.properties,
+                properties: action.payload,
                 isLoading: false
             }
         case GET_PROPERTY_SUCCESS:
@@ -51,14 +51,14 @@ export default function propertiesReducer(state = initialState, action) {
             return {
                 ...state,
                 isLoading: false,
-                property: action.property
+                property: action.payload
             }
         case DELETE_PROPERTY_SUCCESS:
             return {
                 ...state,
                 isLoading: false
             }
-        case GET_PROPERTIES_LIST_FAILURE:
+        case GET_PROPERTY_LIST_FAILURE:
         case GET_PROPERTY_FAILURE:
         case ADD_PROPERTY_FAILURE:
         case UPDATE_PROPERTY_FAILURE:
@@ -66,7 +66,7 @@ export default function propertiesReducer(state = initialState, action) {
         case CHANGE_PROPERTY_STATUS_FAILURE:
             return {
                 ...state,
-                error: action.error,
+                error: action.payload,
                 isLoading: false
             }
         default:

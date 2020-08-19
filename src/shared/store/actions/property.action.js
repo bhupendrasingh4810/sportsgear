@@ -1,7 +1,7 @@
 import {
-    GET_PROPERTIES_LIST,
-    GET_PROPERTIES_LIST_SUCCESS,
-    GET_PROPERTIES_LIST_FAILURE,
+    GET_PROPERTY_LIST,
+    GET_PROPERTY_LIST_SUCCESS,
+    GET_PROPERTY_LIST_FAILURE,
     
     GET_PROPERTY,
     GET_PROPERTY_SUCCESS,
@@ -24,124 +24,124 @@ import {
     CHANGE_PROPERTY_STATUS_FAILURE
 } from '../types/property.types';
 
-function getPropertiesList() {
+export default function getPropertyList() {
     return {
-        type: GET_PROPERTIES_LIST
+        type: GET_PROPERTY_LIST
     };
 }
 
-function getPropertiesListSuccess() {
+export default function getPropertyListSuccess() {
     return {
-        type: GET_PROPERTIES_LIST_SUCCESS,
-        properties
+        type: GET_PROPERTY_LIST_SUCCESS,
+        payload
     };
 }
 
-function getPropertiesListFailure() {
+export default function getPropertyListFailure() {
     return {
-        type: GET_PROPERTIES_LIST_FAILURE,
-        error
+        type: GET_PROPERTY_LIST_FAILURE,
+        payload
     };
 }
 
-function getProperty() {
+export default function getProperty() {
     return {
         type: GET_PROPERTY
     };
 }
 
-function getPropertySuccess() {
+export default function getPropertySuccess() {
     return {
         type: GET_PROPERTY_SUCCESS,
-        property
+        payload
     };
 }
 
-function getPropertyFailure() {
+export default function getPropertyFailure() {
     return {
         type: GET_PROPERTY_FAILURE,
-        error
+        payload
     };
 }
 
-function addProperty() {
+export default function addProperty() {
     return {
         type: ADD_PROPERTY
     };
 }
 
-function addPropertySuccess() {
+export default function addPropertySuccess() {
     return {
         type: ADD_PROPERTY_SUCCESS,
-        property
+        payload
     };
 }
 
-function addPropertyFailure() {
+export default function addPropertyFailure() {
     return {
         type: ADD_PROPERTY_FAILURE,
-        error
+        payload
     };
 }
 
-function updateProperty() {
+export default function updateProperty() {
     return {
         type: UPDATE_PROPERTY
     };
 }
 
-function updatePropertySuccess() {
+export default function updatePropertySuccess() {
     return {
         type: UPDATE_PROPERTY_SUCCESS,
-        property
+        payload
     };
 }
 
-function updatePropertyFailure() {
+export default function updatePropertyFailure() {
     return {
         type: UPDATE_PROPERTY_FAILURE,
-        error
+        payload
     };
 }
 
 
-function deleteProperty() {
+export default function deleteProperty() {
     return {
         type: DELETE_PROPERTY
     };
 }
 
-function deletePropertySuccess() {
+export default function deletePropertySuccess() {
     return {
         type: DELETE_PROPERTY_SUCCESS,
-        response
+        payload
     };
 }
 
-function deletePropertyFailure() {
+export default function deletePropertyFailure() {
     return {
         type: DELETE_PROPERTY_FAILURE,
-        error
+        payload
     };
 }
 
 
-function changePropertyStatus() {
+export default function changePropertyStatus() {
     return {
         type: CHANGE_PROPERTY_STATUS
     };
 }
 
-function changePropertyStatusSuccess() {
+export default function changePropertyStatusSuccess() {
     return {
         type: CHANGE_PROPERTY_STATUS_SUCCESS,
-        response
+        payload
     };
 }
 
-function changePropertyStatusFailure() {
+export default function changePropertyStatusFailure() {
     return {
         type: CHANGE_PROPERTY_STATUS_FAILURE,
-        error
+        payload
     };
 }

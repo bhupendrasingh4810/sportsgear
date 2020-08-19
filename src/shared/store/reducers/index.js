@@ -1,28 +1,30 @@
 import { combineReducers } from 'redux';
-import articlesReducers from './article.reducer';
+import articleReducers from './article.reducer';
+import authReducers from './auth.reducer';
 import brandsReducers from './brand.reducer';
-import cartsReducers from './cart.reducer';
-import categoriesReducers from './category.reducer';
-import subCategoriesReducers from './sub-category.reducer';
-import ordersReducers from './order.reducer';
-import productsReducers from './product.reducer';
-import propertiesReducers from './property.reducer';
-import tagsReducers from './tag.reducer';
-import usersReducers from './user.reducer';
-import sectionsReducers from './section.reducer';
-import reviewsReducers from './review.reducer';
+import cartReducers from './cart.reducer';
+import categoryReducers from './category.reducer';
+import subCategoryReducers from './sub-category.reducer';
+import orderReducers from './order.reducer';
+import productReducers from './product.reducer';
+import propertyReducers from './property.reducer';
+import tagReducers from './tag.reducer';
+import userReducers from './user.reducer';
+import sectionReducers from './section.reducer';
+import reviewReducers from './review.reducer';
 
 export default combineReducers({
-    article: articlesReducers,
+    article: articleReducers,
+    auth: authReducers,
     brand: brandsReducers,
-    cart: cartsReducers,
-    category: categoriesReducers,
-    order: ordersReducers,
-    product: productsReducers,
-    property: propertiesReducers,
-    review: reviewsReducers,
-    section: sectionsReducers,
-    subCategory: subCategoriesReducers,
-    tag: tagsReducers,
-    user: usersReducers
+    cart: cartReducers,
+    category: categoryReducers,
+    order: orderReducers,
+    product: productReducers,
+    property: propertyReducers,
+    review: reviewReducers,
+    section: sectionReducers,
+    subCategory: subCategoryReducers,
+    tag: tagReducers,
+    user: userReducers
 });

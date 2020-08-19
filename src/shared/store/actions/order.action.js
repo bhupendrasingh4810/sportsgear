@@ -1,7 +1,7 @@
 import {
-    GET_ORDERS_LIST,
-    GET_ORDERS_LIST_SUCCESS,
-    GET_ORDERS_LIST_FAILURE,
+    GET_ORDER_LIST,
+    GET_ORDER_LIST_SUCCESS,
+    GET_ORDER_LIST_FAILURE,
     
     GET_ORDER,
     GET_ORDER_SUCCESS,
@@ -20,102 +20,102 @@ import {
     CHANGE_ORDER_STATUS_FAILURE
 } from '../types/order.types';
 
-function getOrdersList() {
+export default function getOrderList() {
     return {
-        type: GET_ORDERS_LIST
+        type: GET_ORDER_LIST
     };
 }
 
-function getOrdersListSuccess() {
+export default function getOrderListSuccess() {
     return {
-        type: GET_ORDERS_LIST_SUCCESS,
-        orders
+        type: GET_ORDER_LIST_SUCCESS,
+        payload
     };
 }
 
-function getOrdersListFailure() {
+export default function getOrderListFailure() {
     return {
-        type: GET_ORDERS_LIST_FAILURE,
-        error
+        type: GET_ORDER_LIST_FAILURE,
+        payload
     };
 }
 
-function getOrder() {
+export default function getOrder() {
     return {
         type: GET_ORDER
     };
 }
 
-function getOrderSuccess() {
+export default function getOrderSuccess() {
     return {
         type: GET_ORDER_SUCCESS,
-        Order
+        payload
     };
 }
 
-function getOrderFailure() {
+export default function getOrderFailure() {
     return {
         type: GET_ORDER_FAILURE,
-        error
+        payload
     };
 }
 
-function addOrder() {
+export default function addOrder() {
     return {
         type: ADD_ORDER
     };
 }
 
-function addOrderSuccess() {
+export default function addOrderSuccess() {
     return {
         type: ADD_ORDER_SUCCESS,
-        Order
+        payload
     };
 }
 
-function addOrderFailure() {
+export default function addOrderFailure() {
     return {
         type: ADD_ORDER_FAILURE,
-        error
+        payload
     };
 }
 
-function updateOrder() {
+export default function updateOrder() {
     return {
         type: UPDATE_ORDER
     };
 }
 
-function updateOrderSuccess() {
+export default function updateOrderSuccess() {
     return {
         type: UPDATE_ORDER_SUCCESS,
-        Order
+        payload
     };
 }
 
-function updateOrderFailure() {
+export default function updateOrderFailure() {
     return {
         type: UPDATE_ORDER_FAILURE,
-        error
+        payload
     };
 }
 
-function changeOrderStatus() {
+export default function changeOrderStatus() {
     return {
         type: CHANGE_ORDER_STATUS
     };
 }
 
-function changeOrderStatusSuccess() {
+export default function changeOrderStatusSuccess() {
     return {
         type: CHANGE_ORDER_STATUS_SUCCESS,
-        response
+        payload
     };
 }
 
-function changeOrderStatusFailure() {
+export default function changeOrderStatusFailure() {
     return {
         type: CHANGE_ORDER_STATUS_FAILURE,
-        error
+        payload
     };
 }

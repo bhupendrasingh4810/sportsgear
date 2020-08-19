@@ -27,7 +27,7 @@ const initialState = {
     error: undefined
 }
 
-export default function cartsReducers(state = initialState, action) {
+export default function cartReducers(state = initialState, action) {
     switch (action.type) {
         case GET_CART_LIST:
         case GET_CART:
@@ -41,7 +41,7 @@ export default function cartsReducers(state = initialState, action) {
         case GET_CART_LIST_SUCCESS:
             return {
                 ...state,
-                carts: action.carts,
+                carts: action.payload,
                 isLoading: false
             }
         case GET_CART_SUCCESS:
@@ -51,7 +51,7 @@ export default function cartsReducers(state = initialState, action) {
             return {
                 ...state,
                 isLoading: false,
-                cart: action.cart
+                cart: action.payload
             }
         case GET_CART_LIST_FAILURE:
         case GET_CART_FAILURE:
@@ -60,7 +60,7 @@ export default function cartsReducers(state = initialState, action) {
         case CHANGE_CART_TO_ORDER_FAILURE:
             return {
                 ...state,
-                error: action.error,
+                error: action.payload,
                 isLoading: false
             }
         default:

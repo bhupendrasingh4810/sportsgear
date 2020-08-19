@@ -1,7 +1,7 @@
 import {
-    GET_REVIEWS_LIST,
-    GET_REVIEWS_LIST_SUCCESS,
-    GET_REVIEWS_LIST_FAILURE,
+    GET_REVIEW_LIST,
+    GET_REVIEW_LIST_SUCCESS,
+    GET_REVIEW_LIST_FAILURE,
     
     GET_REVIEW,
     GET_REVIEW_SUCCESS,
@@ -24,124 +24,124 @@ import {
     CHANGE_REVIEW_STATUS_FAILURE
 } from '../types/review.types';
 
-function getReviewsList() {
+export default function getReviewList() {
     return {
-        type: GET_REVIEWS_LIST
+        type: GET_REVIEW_LIST
     };
 }
 
-function getReviewsListSuccess() {
+export default function getReviewListSuccess() {
     return {
-        type: GET_REVIEWS_LIST_SUCCESS,
-        reviews
+        type: GET_REVIEW_LIST_SUCCESS,
+        payload
     };
 }
 
-function getReviewsListFailure() {
+export default function getReviewListFailure() {
     return {
-        type: GET_REVIEWS_LIST_FAILURE,
-        error
+        type: GET_REVIEW_LIST_FAILURE,
+        payload
     };
 }
 
-function getReview() {
+export default function getReview() {
     return {
         type: GET_REVIEW
     };
 }
 
-function getReviewSuccess() {
+export default function getReviewSuccess() {
     return {
         type: GET_REVIEW_SUCCESS,
-        review
+        payload
     };
 }
 
-function getReviewFailure() {
+export default function getReviewFailure() {
     return {
         type: GET_REVIEW_FAILURE,
-        error
+        payload
     };
 }
 
-function addReview() {
+export default function addReview() {
     return {
         type: ADD_REVIEW
     };
 }
 
-function addReviewSuccess() {
+export default function addReviewSuccess() {
     return {
         type: ADD_REVIEW_SUCCESS,
-        review
+        payload
     };
 }
 
-function addReviewFailure() {
+export default function addReviewFailure() {
     return {
         type: ADD_REVIEW_FAILURE,
-        error
+        payload
     };
 }
 
-function updateReview() {
+export default function updateReview() {
     return {
         type: UPDATE_REVIEW
     };
 }
 
-function updateReviewSuccess() {
+export default function updateReviewSuccess() {
     return {
         type: UPDATE_REVIEW_SUCCESS,
-        review
+        payload
     };
 }
 
-function updateReviewFailure() {
+export default function updateReviewFailure() {
     return {
         type: UPDATE_REVIEW_FAILURE,
-        error
+        payload
     };
 }
 
 
-function deleteReview() {
+export default function deleteReview() {
     return {
         type: DELETE_REVIEW
     };
 }
 
-function deleteReviewSuccess() {
+export default function deleteReviewSuccess() {
     return {
         type: DELETE_REVIEW_SUCCESS,
-        response
+        payload
     };
 }
 
-function deleteReviewFailure() {
+export default function deleteReviewFailure() {
     return {
         type: DELETE_REVIEW_FAILURE,
-        error
+        payload
     };
 }
 
 
-function changeReviewStatus() {
+export default function changeReviewStatus() {
     return {
         type: CHANGE_REVIEW_STATUS
     };
 }
 
-function changeReviewStatusSuccess() {
+export default function changeReviewStatusSuccess() {
     return {
         type: CHANGE_REVIEW_STATUS_SUCCESS,
-        response
+        payload
     };
 }
 
-function changeReviewStatusFailure() {
+export default function changeReviewStatusFailure() {
     return {
         type: CHANGE_REVIEW_STATUS_FAILURE,
-        error
+        payload
     };
 }

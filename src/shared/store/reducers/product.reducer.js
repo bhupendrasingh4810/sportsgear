@@ -1,7 +1,7 @@
 import {
-    GET_PRODUCTS_LIST,
-    GET_PRODUCTS_LIST_SUCCESS,
-    GET_PRODUCTS_LIST_FAILURE,
+    GET_PRODUCT_LIST,
+    GET_PRODUCT_LIST_SUCCESS,
+    GET_PRODUCT_LIST_FAILURE,
 
     GET_PRODUCT,
     GET_PRODUCT_SUCCESS,
@@ -31,9 +31,9 @@ const initialState = {
     error: undefined
 }
 
-export default function productsReducer(state = initialState, action) {
+export default function productReducer(state = initialState, action) {
     switch (action.type) {
-        case GET_PRODUCTS_LIST:
+        case GET_PRODUCT_LIST:
         case GET_PRODUCT:
         case ADD_PRODUCT:
         case UPDATE_PRODUCT:
@@ -43,10 +43,10 @@ export default function productsReducer(state = initialState, action) {
                 ...state,
                 isLoading: true
             }
-        case GET_PRODUCTS_LIST_SUCCESS:
+        case GET_PRODUCT_LIST_SUCCESS:
             return {
                 ...state,
-                products: action.products,
+                products: action.payload,
                 isLoading: false
             }
         case GET_PRODUCT_SUCCESS:
@@ -56,14 +56,14 @@ export default function productsReducer(state = initialState, action) {
             return {
                 ...state,
                 isLoading: false,
-                product: action.product
+                product: action.payload
             }
         case DELETE_PRODUCT_SUCCESS:
             return {
                 ...state,
                 isLoading: false
             }
-        case GET_PRODUCTS_LIST_FAILURE:
+        case GET_PRODUCT_LIST_FAILURE:
         case GET_PRODUCT_FAILURE:
         case ADD_PRODUCT_FAILURE:
         case UPDATE_PRODUCT_FAILURE:
@@ -71,7 +71,7 @@ export default function productsReducer(state = initialState, action) {
         case CHANGE_PRODUCT_STATUS_FAILURE:
             return {
                 ...state,
-                error: action.error,
+                error: action.payload,
                 isLoading: false
             }
         default:

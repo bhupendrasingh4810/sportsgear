@@ -1,7 +1,7 @@
 import {
-    GET_SUB_CATEGORIES_LIST,
-    GET_SUB_CATEGORIES_LIST_SUCCESS,
-    GET_SUB_CATEGORIES_LIST_FAILURE,
+    GET_SUB_CATEGORY_LIST,
+    GET_SUB_CATEGORY_LIST_SUCCESS,
+    GET_SUB_CATEGORY_LIST_FAILURE,
 
     GET_SUB_CATEGORY,
     GET_SUB_CATEGORY_SUCCESS,
@@ -24,124 +24,124 @@ import {
     CHANGE_SUB_CATEGORY_STATUS_FAILURE
 } from '../types/sub-category.types';
 
-function getSubCategoriesList() {
+export default function getSubCategoryList() {
     return {
-        type: GET_SUB_CATEGORIES_LIST
+        type: GET_SUB_CATEGORY_LIST
     };
 }
 
-function getSubCategoriesListSuccess() {
+export default function getSubCategoryListSuccess() {
     return {
-        type: GET_SUB_CATEGORIES_LIST_SUCCESS,
-        subCategories
+        type: GET_SUB_CATEGORY_LIST_SUCCESS,
+        payload
     };
 }
 
-function getSubCategoriesListFailure() {
+export default function getSubCategoryListFailure() {
     return {
-        type: GET_SUB_CATEGORIES_LIST_FAILURE,
-        error
+        type: GET_SUB_CATEGORY_LIST_FAILURE,
+        payload
     };
 }
 
-function getSubCategory() {
+export default function getSubCategory() {
     return {
         type: GET_SUB_CATEGORY
     };
 }
 
-function getSubCategorySuccess() {
+export default function getSubCategorySuccess() {
     return {
         type: GET_SUB_CATEGORY_SUCCESS,
-        subCategory
+        payload
     };
 }
 
-function getSubCategoryFailure() {
+export default function getSubCategoryFailure() {
     return {
         type: GET_SUB_CATEGORY_FAILURE,
-        error
+        payload
     };
 }
 
-function addSubCategory() {
+export default function addSubCategory() {
     return {
         type: ADD_SUB_CATEGORY
     };
 }
 
-function addSubCategorySuccess() {
+export default function addSubCategorySuccess() {
     return {
         type: ADD_SUB_CATEGORY_SUCCESS,
-        subCategory
+        payload
     };
 }
 
-function addSubCategoryFailure() {
+export default function addSubCategoryFailure() {
     return {
         type: ADD_SUB_CATEGORY_FAILURE,
-        error
+        payload
     };
 }
 
-function updateSubCategory() {
+export default function updateSubCategory() {
     return {
         type: UPDATE_SUB_CATEGORY
     };
 }
 
-function updateSubCategorySuccess() {
+export default function updateSubCategorySuccess() {
     return {
         type: UPDATE_SUB_CATEGORY_SUCCESS,
-        subCategory
+        payload
     };
 }
 
-function updateSubCategoryFailure() {
+export default function updateSubCategoryFailure() {
     return {
         type: UPDATE_SUB_CATEGORY_FAILURE,
-        error
+        payload
     };
 }
 
 
-function deleteSubCategory() {
+export default function deleteSubCategory() {
     return {
         type: DELETE_SUB_CATEGORY
     };
 }
 
-function deleteSubCategorySuccess() {
+export default function deleteSubCategorySuccess() {
     return {
         type: DELETE_SUB_CATEGORY_SUCCESS,
-        response
+        payload
     };
 }
 
-function deleteSubCategoryFailure() {
+export default function deleteSubCategoryFailure() {
     return {
         type: DELETE_SUB_CATEGORY_FAILURE,
-        error
+        payload
     };
 }
 
 
-function changeSubCategoryStatus() {
+export default function changeSubCategoryStatus() {
     return {
         type: CHANGE_SUB_CATEGORY_STATUS
     };
 }
 
-function changeSubCategoryStatusSuccess() {
+export default function changeSubCategoryStatusSuccess() {
     return {
         type: CHANGE_SUB_CATEGORY_STATUS_SUCCESS,
-        response
+        payload
     };
 }
 
-function changeSubCategoryStatusFailure() {
+export default function changeSubCategoryStatusFailure() {
     return {
         type: CHANGE_SUB_CATEGORY_STATUS_FAILURE,
-        error
+        payload
     };
 }

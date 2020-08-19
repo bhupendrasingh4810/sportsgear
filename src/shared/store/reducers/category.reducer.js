@@ -1,7 +1,7 @@
 import {
-    GET_CATEGORIES_LIST,
-    GET_CATEGORIES_LIST_SUCCESS,
-    GET_CATEGORIES_LIST_FAILURE,
+    GET_CATEGORY_LIST,
+    GET_CATEGORY_LIST_SUCCESS,
+    GET_CATEGORY_LIST_FAILURE,
 
     GET_CATEGORY,
     GET_CATEGORY_SUCCESS,
@@ -31,9 +31,9 @@ const initialState = {
     error: undefined
 }
 
-export default function categoriesReducer(state = initialState, action) {
+export default function categoryReducer(state = initialState, action) {
     switch (action.type) {
-        case GET_CATEGORIES_LIST:
+        case GET_CATEGORY_LIST:
         case GET_CATEGORY:
         case ADD_CATEGORY:
         case UPDATE_CATEGORY:
@@ -43,10 +43,10 @@ export default function categoriesReducer(state = initialState, action) {
                 ...state,
                 isLoading: true
             }
-        case GET_CATEGORIES_LIST_SUCCESS:
+        case GET_CATEGORY_LIST_SUCCESS:
             return {
                 ...state,
-                categories: action.categories,
+                categories: action.payload,
                 isLoading: false
             }
         case GET_CATEGORY_SUCCESS:
@@ -56,14 +56,14 @@ export default function categoriesReducer(state = initialState, action) {
             return {
                 ...state,
                 isLoading: false,
-                category: action.category
+                category: action.payload
             }
         case DELETE_CATEGORY_SUCCESS:
             return {
                 ...state,
                 isLoading: false
             }
-        case GET_CATEGORIES_LIST_FAILURE:
+        case GET_CATEGORY_LIST_FAILURE:
         case GET_CATEGORY_FAILURE:
         case ADD_CATEGORY_FAILURE:
         case UPDATE_CATEGORY_FAILURE:
@@ -71,7 +71,7 @@ export default function categoriesReducer(state = initialState, action) {
         case CHANGE_CATEGORY_STATUS_FAILURE:
             return {
                 ...state,
-                error: action.error,
+                error: action.payload,
                 isLoading: false
             }
         default:

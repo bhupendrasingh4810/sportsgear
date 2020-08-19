@@ -1,6 +1,6 @@
-export const GET_PROPERTIES_LIST = '[Property] Get Properties List';
-export const GET_PROPERTIES_LIST_SUCCESS = '[Property] Get Properties List Success';
-export const GET_PROPERTIES_LIST_FAILURE = '[Property] Get Properties List Failure';
+export const GET_PROPERTY_LIST = '[Property] Get Property List';
+export const GET_PROPERTY_LIST_SUCCESS = '[Property] Get Property List Success';
+export const GET_PROPERTY_LIST_FAILURE = '[Property] Get Property List Failure';
 
 export const GET_PROPERTY = '[Property] Get Property';
 export const GET_PROPERTY_SUCCESS = '[Property] Get Property Success';

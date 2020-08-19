@@ -1,7 +1,7 @@
 import {
-    GET_TAGS_LIST,
-    GET_TAGS_LIST_SUCCESS,
-    GET_TAGS_LIST_FAILURE,
+    GET_TAG_LIST,
+    GET_TAG_LIST_SUCCESS,
+    GET_TAG_LIST_FAILURE,
 
     GET_TAG,
     GET_TAG_SUCCESS,
@@ -31,9 +31,9 @@ const initialState = {
     error: undefined
 }
 
-export default function tagsReducer(state = initialState, action) {
+export default function tagReducer(state = initialState, action) {
     switch (action.type) {
-        case GET_TAGS_LIST:
+        case GET_TAG_LIST:
         case GET_TAG:
         case ADD_TAG:
         case UPDATE_TAG:
@@ -43,10 +43,10 @@ export default function tagsReducer(state = initialState, action) {
                 ...state,
                 isLoading: true
             }
-        case GET_TAGS_LIST_SUCCESS:
+        case GET_TAG_LIST_SUCCESS:
             return {
                 ...state,
-                tags: action.tags,
+                tags: action.payload,
                 isLoading: false
             }
         case GET_TAG_SUCCESS:
@@ -56,14 +56,14 @@ export default function tagsReducer(state = initialState, action) {
             return {
                 ...state,
                 isLoading: false,
-                tag: action.tag
+                tag: action.payload
             }
         case DELETE_TAG_SUCCESS:
             return {
                 ...state,
                 isLoading: false
             }
-        case GET_TAGS_LIST_FAILURE:
+        case GET_TAG_LIST_FAILURE:
         case GET_TAG_FAILURE:
         case ADD_TAG_FAILURE:
         case UPDATE_TAG_FAILURE:
@@ -71,7 +71,7 @@ export default function tagsReducer(state = initialState, action) {
         case CHANGE_TAG_STATUS_FAILURE:
             return {
                 ...state,
-                error: action.error,
+                error: action.payload,
                 isLoading: false
             }
         default:
