@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 
-import Header from '../../components/Headers/Header';
 import Table from '../../components/Tables/Table';
 
 export default () => {
@@ -36,7 +35,7 @@ export default () => {
 
     return (
         <>
-            <Header />
+            <div className="header bg-gradient-info pb-8 pt-5 pt-md-5"></div>
             {/* Page content */}
             <Container className="mt--7" fluid>
                 <Row className="mt-5">

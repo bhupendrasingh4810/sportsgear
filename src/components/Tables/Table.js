@@ -24,7 +24,7 @@ import SubCategoryTable from './SubCategoryTable';
 import TagTable from './TagTable';
 import UserTable from './UserTable';
 import history from '../../history';
-import AddTagModal from '../../modals/AddTagModal';
+import AddTagModal from '../../shared/modals/AddTagModal';
 import ReviewTable from './ReviewTable';
 
 export default props => {
