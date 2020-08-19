@@ -11,4 +11,6 @@ export default Yup.object().shape({
     slug: Yup.string().required(),
     sport: Yup.string()
         .required(Validation.REQ_SPORT),
+    category: Yup.string()
+        .required(Validation.REQ_CATEGORY)
 });

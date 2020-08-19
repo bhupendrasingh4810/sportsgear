@@ -2,7 +2,7 @@ import React from 'react';
 import AdminSidebar from '../components/Sidebars/AdminSidebar';
 import { Switch, Redirect, Route } from 'react-router-dom';
 import AdminNavbar from '../components/Navbars/AdminNavbar';
-import { routes, detailPageRoutes } from '../routes';
+import { routes, detailPageRoutes } from '../shared/routes';
 
 export default props => {
 
