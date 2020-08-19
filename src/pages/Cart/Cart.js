@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 
 import Header from '../../components/Headers/Header';
@@ -7,17 +7,27 @@ import Table from '../../components/Tables/Table';
 export default () => {
 
     const tableHeadings = [
-        "Customer",
-        "Msisdn",
-        "Email",
-        "Products in Cart",
-        "Cart Value",
-        "Last Updated",
-        "Promo",
-        ""
+        { name: 'Customer', key: 'name', sortingEnabled: true },
+        { name: 'Phone', key: 'msisdn', sortingEnabled: true },
+        { name: 'Email', key: 'email', sortingEnabled: true },
+        { name: 'Products in Cart', sortingEnabled: false },
+        { name: 'Cart Value', key: 'total', sortingEnabled: true },
+        { name: 'Last Updated', key: 'updatedAt', sortingEnabled: true },
+        { name: 'Promo', sortingEnabled: false },
+        { name: '', sortingEnabled: false }
     ];
 
+    const [sort, setSort] = useState({
+        sortOrder: 'asc',
+        sortBy: 'name'
+    });
+
     // const tableData = [];
+
+    function sortTable(sortOrder, sortBy) {
+        setSort({ sortOrder, sortBy });
+    }
+
     return (
         <>
             <Header />
@@ -30,6 +40,8 @@ export default () => {
                             page="cart"
                             showAddBtn={false}
                             tableHeadings={tableHeadings}
+                            sortTable={sortTable}
+                            sort={sort}
                         />
                     </Col>
                 </Row>

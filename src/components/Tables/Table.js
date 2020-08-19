@@ -28,11 +28,11 @@ import AddTagModal from '../../modals/AddTagModal';
 import ReviewTable from './ReviewTable';
 
 export default props => {
-
+    console.log(props);
     function renderRow(page) {
         switch (page) {
             case "article": return [0, 1, 2, 3, 4, 5].map((data, key) => {
-                return <ArticleTable key={key} />
+                return <ArticleTable sortTable={props.sortTable} key={key} />
             });
             case "brand": return [0, 1, 2, 3, 4, 5].map((data, key) => {
                 return <BrandTable key={key} />
@@ -101,7 +101,10 @@ export default props => {
                 </Row>
             </CardHeader>
             <Table className="align-items-center table-flush" responsive>
-                <TableHead tableHeadings={props.tableHeadings} />
+                <TableHead
+                    tableHeadings={props.tableHeadings}
+                    sortTable={props.sortTable}
+                    sort={props.sort} />
                 <tbody>
                     {renderRow(props.page)}
                 </tbody>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 
 import Header from '../../components/Headers/Header';
@@ -6,22 +6,32 @@ import Table from '../../components/Tables/Table';
 
 export default props => {
     const tableHeadings = [
-        "Customer",
-        "Phone",
-        "Email",
-        "Products in Cart",
-        "Order Value",
-        "Razorpay Order ID",
-        "Payment ID",
-        "Payment Method",
-        "Is Gift",
-        "Note",
-        "Promo",
-        "Placed On",
-        ""
+        { name: 'Customer', key: 'name', sortingEnabled: true },
+        { name: 'Phone', key: 'msisdn', sortingEnabled: true },
+        { name: 'Email', key: 'email', sortingEnabled: true },
+        { name: 'Products in Cart', key: 'products_in_cart', sortingEnabled: false },
+        { name: 'Order Value', key: 'amount', sortingEnabled: true },
+        { name: 'Razorpay Order ID', key: 'razorpay_order_id', sortingEnabled: false },
+        { name: 'Payment ID', key: 'payment_id', sortingEnabled: false },
+        { name: 'Payment Method', key: 'payment_method', sortingEnabled: true },
+        { name: 'Is Gift', key: 'isGift', sortingEnabled: true },
+        { name: 'Note', key: 'note', sortingEnabled: true },
+        { name: 'Promo', key: 'promo', sortingEnabled: false },
+        { name: 'Status', key: 'status', sortingEnabled: true },
+        { name: '', sortingEnabled: false },
     ];
 
+    const [sort, setSort] = useState({
+        sortOrder: 'asc',
+        sortBy: 'name'
+    });
+
     // const tableData = [];
+
+    function sortTable(sortOrder, sortBy) {
+        setSort({ sortOrder, sortBy });
+    }
+
     return (
         <>
             <Header />
@@ -34,6 +44,8 @@ export default props => {
                             page="order"
                             showAddBtn={false}
                             tableHeadings={tableHeadings}
+                            sortTable={sortTable}
+                            sort={sort}
                         />
                     </Col>
                 </Row>

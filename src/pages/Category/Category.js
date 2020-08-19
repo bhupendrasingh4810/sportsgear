@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 
 import Header from '../../components/Headers/Header';
@@ -6,13 +6,18 @@ import Table from '../../components/Tables/Table';
 
 export default () => {
     const tableHeadings = [
-        "Logo",
-        "Name",
-        "Section",
-        "Added On",
-        "Status",
-        ""
+        { name: 'Logo', sortingEnabled: false },
+        { name: 'Name', key: 'name', sortingEnabled: true },
+        { name: 'Section', key: 'sport.name', sortingEnabled: true },
+        { name: 'Added On', key: 'createdAt', sortingEnabled: true },
+        { name: 'Status', key: 'status', sortingEnabled: true },
+        { name: '', sortingEnabled: false }
     ];
+
+    const [sort, setSort] = useState({
+        sortOrder: 'asc',
+        sortBy: 'name'
+    });
 
     const addNewBtnData = {
         text: "Add Category",
@@ -20,6 +25,11 @@ export default () => {
     };
 
     // const tableData = [];
+
+    function sortTable(sortOrder, sortBy) {
+        setSort({ sortOrder, sortBy });
+    }
+
     return (
         <>
             <Header />
@@ -33,6 +43,8 @@ export default () => {
                             showAddBtn={true}
                             tableHeadings={tableHeadings}
                             addNewBtnData={addNewBtnData}
+                            sortTable={sortTable}
+                            sort={sort}
                         />
                     </Col>
                 </Row>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 
 import Header from '../../components/Headers/Header';
@@ -6,16 +6,22 @@ import Table from '../../components/Tables/Table';
 
 export default () => {
     const tableHeadings = [
-        "Image",
-        "Name",
-        "Msisdn",
-        "Email",
-        "Gender",
-        "Role",
-        "Verified",
-        "Joined On",
-        "Status"
+        { name: 'Image', sortingEnabled: false },
+        { name: 'Name', key: 'name', sortingEnabled: true },
+        { name: 'Phone', key: 'msisdn', sortingEnabled: true },
+        { name: 'Email', key: 'email', sortingEnabled: true },
+        { name: 'Gender', key: 'gender', sortingEnabled: true },
+        { name: 'Role', key: 'role', sortingEnabled: true },
+        { name: 'Verified', key: 'verified', sortingEnabled: true },
+        { name: 'Joined On', key: 'createdAt', sortingEnabled: true },
+        { name: 'Status', key: 'status', sortingEnabled: true },
+        { name: '', sortingEnabled: false }
     ];
+
+    const [sort, setSort] = useState({
+        sortOrder: 'asc',
+        sortBy: 'name'
+    });
 
     const addNewBtnData = {
         text: "Add User",
@@ -23,6 +29,11 @@ export default () => {
     };
 
     // const tableData = [];
+
+    function sortTable(sortOrder, sortBy) {
+        setSort({ sortOrder, sortBy });
+    }
+
     return (
         <>
             <Header />
@@ -36,6 +47,8 @@ export default () => {
                             showAddBtn={true}
                             tableHeadings={tableHeadings}
                             addNewBtnData={addNewBtnData}
+                            sortTable={sortTable}
+                            sort={sort}
                         />
                     </Col>
                 </Row>
