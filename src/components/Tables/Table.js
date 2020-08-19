@@ -28,7 +28,7 @@ import AddTagModal from '../../shared/modals/AddTagModal';
 import ReviewTable from './ReviewTable';
 
 export default props => {
-    console.log(props);
+
     function renderRow(page) {
         switch (page) {
             case "article": return [0, 1, 2, 3, 4, 5].map((data, key) => {
