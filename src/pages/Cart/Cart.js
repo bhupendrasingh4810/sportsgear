@@ -13,7 +13,8 @@ export default () => {
         "Products in Cart",
         "Cart Value",
         "Last Updated",
-        "Promo"
+        "Promo",
+        ""
     ];
 
     // const tableData = [];

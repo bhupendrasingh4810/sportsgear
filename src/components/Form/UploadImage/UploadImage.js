@@ -20,8 +20,8 @@ export default props => {
     return (
         <div className="avatar-upload mb-1">
             <div className="avatar-edit">
-                <input type='file' id="imageUpload" disabled={props.disabled} onChange={e => readURL(e.target)} accept=".png, .jpg, .jpeg" />
-                <label htmlFor="imageUpload">
+                <input type='file' id={props.uniqueKey ? props.uniqueKey : 'imageUpload'} disabled={props.disabled} onChange={e => readURL(e.target)} accept=".png, .jpg, .jpeg" />
+                <label htmlFor={props.uniqueKey ? props.uniqueKey : 'imageUpload'}>
                     <i className="fas fa-edit"></i>
                 </label>
             </div>

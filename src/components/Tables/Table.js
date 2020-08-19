@@ -25,6 +25,7 @@ import TagTable from './TagTable';
 import UserTable from './UserTable';
 import history from '../../history';
 import AddTagModal from '../../modals/AddTagModal';
+import ReviewTable from './ReviewTable';
 
 export default props => {
 
@@ -50,6 +51,9 @@ export default props => {
             });
             case "property": return [0, 1, 2, 3, 4, 5].map((data, key) => {
                 return <PropertyTable key={key} />
+            });
+            case "review": return [0, 1, 2, 3, 4, 5].map((data, key) => {
+                return <ReviewTable key={key} />
             });
             case "section": return [0, 1, 2, 3, 4, 5].map((data, key) => {
                 return <SectionTable key={key} />

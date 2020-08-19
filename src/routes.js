@@ -18,6 +18,7 @@ import SubCategoryDetail from './pages/SubCategory/SubCategoryDetail';
 import UserDetail from './pages/User/UserDetail';
 import PropertyDetail from './pages/Property/PropertyDetail';
 import ProductDetail from './pages/Product/ProductDetail';
+import Review from './pages/Review/Review';
 
 export const routes = [
     {
@@ -82,6 +83,14 @@ export const routes = [
         page: "property",
         icon: "ni ni-tv-2 text-primary",
         component: Property,
+        layout: "/admin"
+    },
+    {
+        path: "/review",
+        name: "Reviews",
+        page: "review",
+        icon: "ni ni-tv-2 text-primary",
+        component: Review,
         layout: "/admin"
     },
     {

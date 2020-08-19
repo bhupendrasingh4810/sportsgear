@@ -11,6 +11,7 @@ export default () => {
         "Number of Categories",
         "Added On",
         "Status",
+        ""
     ];
 
     const addNewBtnData = {

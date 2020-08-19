@@ -9,7 +9,8 @@ export default props => {
         "Logo",
         "Name",
         "Added On",
-        "Status"
+        "Status",
+        ""
     ];
 
     const addNewBtnData = {

@@ -473,6 +473,23 @@ export default props => {
                                                             {(errors.year && touched.year) && <small className="text-danger">{errors.year}</small>}
                                                         </FormGroup>
                                                     </Col>
+                                                    {/* <Col lg="3" md="6" xs="12">
+                                                        <div className="custom-control custom-control-alternative custom-checkbox">
+                                                            <input
+                                                                className="custom-control-input"
+                                                                id=" customCheckLogin"
+                                                                type="checkbox"
+                                                                disabled={isLoading}
+                                                                value={values.hasProductReturnPolicy}
+                                                                onChange={e => setFieldValue('hasProductReturnPolicy', e.target.checked)}
+                                                            />
+                                                            <label
+                                                                className="custom-control-label"
+                                                                htmlFor=" customCheckLogin">
+                                                                <span className="text-muted">{values.hasProductReturnPolicy ? 'Has' : 'Doesn\'t have'} return policy</span>
+                                                            </label>
+                                                        </div>
+                                                    </Col> */}
                                                 </Row>
                                                 <Row>
                                                     <Col lg="6" md="6" xs="12">
@@ -505,25 +522,6 @@ export default props => {
                                                                 style={{ resize: 'none' }}
                                                             />
                                                         </FormGroup>
-                                                    </Col>
-                                                </Row>
-                                                <Row>
-                                                    <Col xs="12" md="12" lg="12" className="text-center">
-                                                        <div className="custom-control custom-control-alternative custom-checkbox">
-                                                            <input
-                                                                className="custom-control-input"
-                                                                id=" customCheckLogin"
-                                                                type="checkbox"
-                                                                disabled={isLoading}
-                                                                value={values.hasProductReturnPolicy}
-                                                                onChange={e => setFieldValue('hasProductReturnPolicy', e.target.checked)}
-                                                            />
-                                                            <label
-                                                                className="custom-control-label"
-                                                                htmlFor=" customCheckLogin">
-                                                                <span className="text-muted">{values.hasProductReturnPolicy ? 'Has' : 'Doesn\'t have'} return policy</span>
-                                                            </label>
-                                                        </div>
                                                     </Col>
                                                 </Row>
                                                 <div className="text-center">

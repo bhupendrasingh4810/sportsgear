@@ -8,7 +8,8 @@ export default props => {
     const tableHeadings = [
         "Name",
         "Added On",
-        "Status"
+        "Status",
+        ""
     ];
 
     const addNewBtnData = {

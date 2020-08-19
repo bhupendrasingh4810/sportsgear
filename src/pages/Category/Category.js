@@ -10,7 +10,8 @@ export default () => {
         "Name",
         "Section",
         "Added On",
-        "Status"
+        "Status",
+        ""
     ];
 
     const addNewBtnData = {

@@ -18,7 +18,8 @@ export default () => {
         "Promo / Offer",
         "Tags",
         "Added On",
-        "Updated On"
+        "Updated On",
+        ""
     ];
 
     const addNewBtnData = {

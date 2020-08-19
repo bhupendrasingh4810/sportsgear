@@ -6,18 +6,20 @@ import Table from '../../components/Tables/Table';
 
 export default () => {
     const tableHeadings = [
-        "Logo",
-        "Name",
-        "Section",
-        "Category",
+        "Customer",
+        "Phone",
+        "Email",
+        "Product",
+        "Title",
+        "Rating",
         "Added On",
-        "Status",
+        "Published / Status",
         ""
     ];
 
     const addNewBtnData = {
-        text: "Add Sub Category",
-        path: "/admin/sub-category/add"
+        text: "Add Review",
+        path: "/admin/review/add"
     };
 
     // const tableData = [];
@@ -29,8 +31,8 @@ export default () => {
                 <Row className="mt-5">
                     <Col className="mb-5 mb-xl-0" xl="12">
                         <Table
-                            heading="Sub Categories"
-                            page="sub-category"
+                            heading="Reviews"
+                            page="review"
                             showAddBtn={true}
                             tableHeadings={tableHeadings}
                             addNewBtnData={addNewBtnData}

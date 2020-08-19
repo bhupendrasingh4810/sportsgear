@@ -7,7 +7,7 @@ import Table from '../../components/Tables/Table';
 export default props => {
     const tableHeadings = [
         "Customer",
-        "Msisdn",
+        "Phone",
         "Email",
         "Products in Cart",
         "Order Value",
@@ -18,6 +18,7 @@ export default props => {
         "Note",
         "Promo",
         "Placed On",
+        ""
     ];
 
     // const tableData = [];
