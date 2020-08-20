@@ -1,7 +1,7 @@
 import axios from "axios";
 import { API } from "../shared/store/types/auth.types";
 import { accessDenied, apiError, apiStart, apiEnd } from "../shared/store/actions/api.action";
-
+import { SPORTSGEAR_USER } from '../shared/constants/app-constant';
 
 const apiMiddleware = ({ dispatch }) => next => async action => {
     next(action);
@@ -23,9 +23,11 @@ const apiMiddleware = ({ dispatch }) => next => async action => {
 
 
     // axios default configs
+    const user = localStorage.getItem(SPORTSGEAR_USER);
     axios.defaults.baseURL = process.env.REACT_APP_BASE_URL || "";
     axios.defaults.headers.common["Content-Type"] = "application/json";
-    axios.defaults.headers.common["Authorization"] = `Bearer${accessToken}`;
+    // axios.defaults.headers.common["Authorization"] = `Bearer${user && JSON.parse(user).token}`;
+    axios.defaults.headers.common["token"] = `${user && JSON.parse(user).token}`;
 
 
     if (label) {

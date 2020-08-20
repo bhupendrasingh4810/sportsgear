@@ -1,7 +1,7 @@
 import {
-    GET_ARTICLES_LIST,
-    GET_ARTICLES_LIST_SUCCESS,
-    GET_ARTICLES_LIST_FAILURE,
+    GET_ARTICLE_LIST,
+    GET_ARTICLE_LIST_SUCCESS,
+    GET_ARTICLE_LIST_FAILURE,
 
     GET_ARTICLE,
     GET_ARTICLE_SUCCESS,
@@ -23,81 +23,103 @@ import {
     CHANGE_ARTICLE_STATUS_SUCCESS,
     CHANGE_ARTICLE_STATUS_FAILURE
 } from '../types/article.types';
+import { ARTICLE_API } from '../../constants/api-constant';
+import { apiAction } from './api.action';
 
-export default function getArticleList() {
-    return {
-        type: GET_ARTICLES_LIST
-    };
+export const getArticleList = () => {
+    return apiAction({
+        url: ARTICLE_API,
+        method: 'GET',
+        data: null,
+        onSuccess: getArticleListSuccess,
+        onFailure: getArticleListFailure,
+        label: GET_ARTICLE_LIST
+    });
 }
 
-export default function getArticleListSuccess() {
+export const getArticleListSuccess = payload => {
     return {
-        type: GET_ARTICLES_LIST_SUCCESS,
+        type: GET_ARTICLE_LIST_SUCCESS,
         payload
     };
 }
 
-export default function getArticleListFailure() {
+export const getArticleListFailure = payload => {
     return {
-        type: GET_ARTICLES_LIST_FAILURE,
+        type: GET_ARTICLE_LIST_FAILURE,
         payload
     };
 }
 
-export default function getArticle() {
-    return {
-        type: GET_ARTICLE
-    };
+export const getArticle = payload => {
+    return apiAction({
+        url: `${ARTICLE_API}/${payload}`,
+        method: 'GET',
+        data: null,
+        onSuccess: getArticleSuccess,
+        onFailure: getArticleFailure,
+        label: GET_ARTICLE
+    });
 }
 
-export default function getArticleSuccess() {
+export const getArticleSuccess = payload => {
     return {
         type: GET_ARTICLE_SUCCESS,
         payload
     };
 }
 
-export default function getArticleFailure() {
+export const getArticleFailure = payload => {
     return {
         type: GET_ARTICLE_FAILURE,
         payload
     };
 }
 
-export default function addArticle() {
-    return {
-        type: ADD_ARTICLE
-    };
+export const addArticle = payload => {
+    return apiAction({
+        url: ARTICLE_API,
+        method: 'POST',
+        data: payload,
+        onSuccess: addArticleSuccess,
+        onFailure: addArticleFailure,
+        label: ADD_ARTICLE
+    });
 }
 
-export default function addArticleSuccess() {
+export const addArticleSuccess = payload => {
     return {
         type: ADD_ARTICLE_SUCCESS,
         payload
     };
 }
 
-export default function addArticleFailure() {
+export const addArticleFailure = payload => {
     return {
         type: ADD_ARTICLE_FAILURE,
         payload
     };
 }
 
-export default function updateArticle() {
-    return {
-        type: UPDATE_ARTICLE
-    };
+export const updateArticle = ({ id, body }) => {
+    return apiAction({
+        url: `${ARTICLE_API}/${id}`,
+        method: 'PUT',
+        data: body,
+        onSuccess: updateArticleSuccess,
+        onFailure: updateArticleFailure,
+        label: UPDATE_ARTICLE
+    });
 }
 
-export default function updateArticleSuccess() {
+export const updateArticleSuccess = payload => {
     return {
         type: UPDATE_ARTICLE_SUCCESS,
         payload
     };
 }
 
-export default function updateArticleFailure() {
+export const updateArticleFailure = payload => {
     return {
         type: UPDATE_ARTICLE_FAILURE,
         payload
@@ -105,20 +127,25 @@ export default function updateArticleFailure() {
 }
 
 
-export default function deleteArticle() {
-    return {
-        type: DELETE_ARTICLE
-    };
+export const deleteArticle = payload => {
+    return apiAction({
+        url: `${ARTICLE_API}/${payload}`,
+        method: 'DELETE',
+        data: null,
+        onSuccess: deleteArticleSuccess,
+        onFailure: deleteArticleFailure,
+        label: DELETE_ARTICLE
+    });
 }
 
-export default function deleteArticleSuccess() {
+export const deleteArticleSuccess = payload => {
     return {
         type: DELETE_ARTICLE_SUCCESS,
         payload
     };
 }
 
-export default function deleteArticleFailure() {
+export const deleteArticleFailure = payload => {
     return {
         type: DELETE_ARTICLE_FAILURE,
         payload
@@ -126,20 +153,25 @@ export default function deleteArticleFailure() {
 }
 
 
-export default function changeArticleStatus() {
-    return {
-        type: CHANGE_ARTICLE_STATUS
-    };
+export const changeArticleStatus = ({ id, body }) => {
+    return apiAction({
+        url: `${ARTICLE_API}/${id}`,
+        method: 'PATCH',
+        data: body,
+        onSuccess: changeArticleStatusSuccess,
+        onFailure: changeArticleStatusFailure,
+        label: CHANGE_ARTICLE_STATUS
+    });
 }
 
-export default function changeArticleStatusSuccess() {
+export const changeArticleStatusSuccess = payload => {
     return {
         type: CHANGE_ARTICLE_STATUS_SUCCESS,
         payload
     };
 }
 
-export default function changeArticleStatusFailure() {
+export const changeArticleStatusFailure = payload => {
     return {
         type: CHANGE_ARTICLE_STATUS_FAILURE,
         payload

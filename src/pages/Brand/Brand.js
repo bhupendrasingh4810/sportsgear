@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from 'reactstrap';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 import Table from '../../components/Tables/Table';
+import { getBrandList } from '../../shared/store/actions/brand.action';
 
-export default props => {
+const Brand = props => {
     const tableHeadings = [
         { name: 'Logo', key: 'logo', sortingEnabled: false },
         { name: 'Name', key: 'name', sortingEnabled: true },
@@ -11,6 +14,8 @@ export default props => {
         { name: 'Status', key: 'status', sortingEnabled: true },
         { name: '', sortingEnabled: false }
     ];
+
+    useEffect(() => props.getBrandList(), []);
 
     const [sort, setSort] = useState({
         sortOrder: 'asc',
@@ -50,3 +55,16 @@ export default props => {
         </>
     );
 }
+
+const mapStateToProps = ({ brand }) => ({
+    brands: brand.brands
+});
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+    getBrandList
+}, dispatch);
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Brand);

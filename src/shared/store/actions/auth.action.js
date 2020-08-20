@@ -2,21 +2,17 @@ import {
     LOGIN_ACTION,
     LOGIN_SUCCESS,
     LOGIN_FAILURE,
-
     LOGOUT,
-
     GET_USER_PROFILE,
     GET_USER_PROFILE_SUCCESS,
     GET_USER_PROFILE_FAILURE,
-
-    API
 } from '../types/auth.types';
-
-import { BASE_URL, LOGIN } from '../../constants/apiConstant';
+import { LOGIN_API } from '../../constants/api-constant';
+import { apiAction } from './api.action';
 
 export const login = payload => {
     return apiAction({
-        url: `${BASE_URL}${LOGIN}`,
+        url: LOGIN_API,
         method: 'POST',
         data: payload,
         onSuccess: loginSuccess,
@@ -60,30 +56,5 @@ export function getUserProfileFailure(payload) {
     return {
         type: GET_USER_PROFILE_FAILURE,
         payload
-    };
-}
-
-export function apiAction({
-    url = "",
-    method = "GET",
-    data = null,
-    accessToken = null,
-    onSuccess = () => { },
-    onFailure = () => { },
-    label = "",
-    headersOverride = null
-}) {
-    return {
-        type: API,
-        payload: {
-            url,
-            method,
-            data,
-            accessToken,
-            onSuccess,
-            onFailure,
-            label,
-            headersOverride
-        }
     };
 }

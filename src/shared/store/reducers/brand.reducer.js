@@ -46,7 +46,7 @@ export default function brandReducer(state = initialState, action) {
         case GET_BRAND_LIST_SUCCESS:
             return {
                 ...state,
-                brands: action.payload,
+                brands: action.payload.data,
                 isLoading: false
             }
         case GET_BRAND_SUCCESS:

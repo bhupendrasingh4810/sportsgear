@@ -18,13 +18,13 @@ export default props => {
 
     const [action] = useState('add');
 
-    useEffect(() => {
-        const getInitials = () => {
-            setProperties(['Shirt Size', 'Shirt Collar', 'Shirt Sleeve', 'Shirt Color', 'Shirt Length', 'Material', 'T-Shirt Size', 'T-Shirt Collar', 'T-Shirt Sleeve', 'T-Shirt Color', 'T-Shirt Length', 'T-Shirt Material']);
-            getArticle();
-        };
-        getInitials();
-    }, []);
+    // useEffect(async () => {
+    //     const getInitials = () => {
+    //         setProperties(['Shirt Size', 'Shirt Collar', 'Shirt Sleeve', 'Shirt Color', 'Shirt Length', 'Material', 'T-Shirt Size', 'T-Shirt Collar', 'T-Shirt Sleeve', 'T-Shirt Color', 'T-Shirt Length', 'T-Shirt Material']);
+    //         getArticle();
+    //     };
+    //     getInitials();
+    // }, []);
 
     function setLogo(logo) {
         setArticle({ ...article, logo });

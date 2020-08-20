@@ -1,15 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from 'reactstrap';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 import Table from '../../components/Tables/Table';
+import { getArticleList } from '../../shared/store/actions/article.action';
 
-export default props => {
+const Article = props => {
     const tableHeadings = [
         { name: 'Name', key: 'name', sortingEnabled: true },
         { name: 'Added On', key: 'createdAt', sortingEnabled: true },
         { name: 'Status', key: 'status', sortingEnabled: true },
         { name: '', sortingEnabled: false }
     ];
+
+    useEffect(() => props.getArticleList(), []);
 
     const [sort, setSort] = useState({
         sortOrder: 'asc',
@@ -48,3 +53,16 @@ export default props => {
         </>
     );
 }
+
+const mapStateToProps = ({ article }) => ({
+    articles: article.articles
+});
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+    getArticleList
+}, dispatch);
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Article);
