@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col, Button, Modal, Card, CardBody, Form, FormGroup, Input } from 'reactstrap';
 import { useState } from 'react';
-import { REQ_NAME } from '../constants/SchemaConstants';
+import { REQ_NAME } from '../constants/schema-constants';
 
 export default props => {
 

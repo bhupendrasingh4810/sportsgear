@@ -25,7 +25,7 @@ export const routes = [
         path: "/dashboard",
         name: "Dashboard",
         page: "dashboard",
-        icon: "ni ni-tv-2 text-primary",
+        icon: "fas fa-th",
         component: Dashboard,
         layout: "/admin"
     },
@@ -33,7 +33,7 @@ export const routes = [
         path: "/article",
         name: "Articles",
         page: "article",
-        icon: "ni ni-tv-2 text-primary",
+        icon: "fas fa-tshirt",
         component: Article,
         layout: "/admin"
     },
@@ -41,7 +41,7 @@ export const routes = [
         path: "/brand",
         name: "Brands",
         page: "brand",
-        icon: "ni ni-tv-2 text-primary",
+        icon: "fas fa-dice-d6",
         component: Brand,
         layout: "/admin"
     },
@@ -49,7 +49,7 @@ export const routes = [
         path: "/category",
         name: "Categories",
         page: "category",
-        icon: "ni ni-tv-2 text-primary",
+        icon: "fas fa-sitemap",
         component: Category,
         layout: "/admin"
     },
@@ -57,7 +57,7 @@ export const routes = [
         path: "/cart",
         name: "Carts",
         page: "cart",
-        icon: "ni ni-tv-2 text-primary",
+        icon: "fas fa-shopping-cart",
         component: Cart,
         layout: "/admin"
     },
@@ -65,7 +65,7 @@ export const routes = [
         path: "/order",
         name: "Orders",
         page: "order",
-        icon: "ni ni-tv-2 text-primary",
+        icon: "fas fa-shopping-bag",
         component: Order,
         layout: "/admin"
     },
@@ -73,7 +73,7 @@ export const routes = [
         path: "/product",
         name: "Products",
         page: "product",
-        icon: "ni ni-tv-2 text-primary",
+        icon: "fas fa-warehouse",
         component: Product,
         layout: "/admin"
     },
@@ -81,7 +81,7 @@ export const routes = [
         path: "/property",
         name: "Properties",
         page: "property",
-        icon: "ni ni-tv-2 text-primary",
+        icon: "fas fa-braille",
         component: Property,
         layout: "/admin"
     },
@@ -89,7 +89,7 @@ export const routes = [
         path: "/review",
         name: "Reviews",
         page: "review",
-        icon: "ni ni-tv-2 text-primary",
+        icon: "fas fa-splotch",
         component: Review,
         layout: "/admin"
     },
@@ -97,7 +97,7 @@ export const routes = [
         path: "/section",
         name: "Sections",
         page: "section",
-        icon: "ni ni-tv-2 text-primary",
+        icon: "fas fa-border-all",
         component: Section,
         layout: "/admin"
     },
@@ -105,7 +105,7 @@ export const routes = [
         path: "/sub-category",
         name: "Sub Categories",
         page: "sub-category",
-        icon: "ni ni-tv-2 text-primary",
+        icon: "fas fa-sitemap",
         component: SubCategory,
         layout: "/admin"
     },
@@ -113,7 +113,7 @@ export const routes = [
         path: "/tag",
         name: "Tags",
         page: "tag",
-        icon: "ni ni-tv-2 text-primary",
+        icon: "fas fa-tags",
         component: Tag,
         layout: "/admin"
     },
@@ -121,7 +121,7 @@ export const routes = [
         path: "/users",
         name: "Users",
         page: "user",
-        icon: "ni ni-tv-2 text-primary",
+        icon: "fas fa-users",
         component: User,
         layout: "/admin"
     }

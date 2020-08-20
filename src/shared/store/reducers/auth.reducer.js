@@ -1,5 +1,5 @@
 import {
-    LOGIN,
+    LOGIN_ACTION,
     LOGIN_SUCCESS,
     LOGIN_FAILURE,
 
@@ -14,29 +14,39 @@ import {
     GET_DASHBOARD_FAILURE
 } from '../types/auth.types';
 
+import { SPORTSGEAR_USER } from '../../constants/app-constant';
+
+const user = localStorage.getItem(SPORTSGEAR_USER);
 const initialState = {
     isLoading: false,
-    auth: undefined,
-    user: undefined,
+    isAuthenticated: !!user,
+    token: (user && JSON.parse(user).token) || undefined,
+    user: JSON.parse(user) || undefined,
     dashboard: undefined,
     error: undefined
 }
 
 export default function authReducer(state = initialState, action) {
     switch (action.type) {
-        case LOGIN:
+        case LOGIN_ACTION:
         case GET_USER_PROFILE:
         case GET_DASHBOARD:
             return {
                 ...state,
                 isLoading: true
             }
-        case LOGIN_SUCCESS:
+        case LOGIN_SUCCESS: {
+            localStorage.setItem(SPORTSGEAR_USER, JSON.stringify(action.payload.data));
+            const { data: { token, ...rest } } = action.payload;
             return {
                 ...state,
-                auth: action.payload,
-                isLoading: false
+                isAuthenticated: true,
+                token,
+                user: rest,
+                isLoading: false,
+                error: undefined
             }
+        }
         case GET_USER_PROFILE_SUCCESS:
             return {
                 ...state,
@@ -56,6 +66,15 @@ export default function authReducer(state = initialState, action) {
                 ...state,
                 error: action.payload,
                 isLoading: false
+            }
+        case LOGOUT:
+            localStorage.removeItem(SPORTSGEAR_USER);
+            return {
+                ...state,
+                isAuthenticated: false,
+                user: undefined,
+                token: undefined,
+                error: undefined
             }
         default:
             return state;

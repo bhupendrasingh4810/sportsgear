@@ -11,7 +11,14 @@ import {
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-export default props => {
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { logout } from '../../shared/store/actions/auth.action';
+
+const AdminNavbar = props => {
+
+    const { user } = props;
+
     return (
         <Navbar className="navbar-top navbar-dark" expand="md" id="navbar-main">
             <Container fluid>
@@ -20,7 +27,7 @@ export default props => {
                 </Link>
 
                 {/* Searchbox was here */}
-                
+
                 <Nav className="align-items-center d-none d-md-flex" navbar>
                     <UncontrolledDropdown nav>
                         <DropdownToggle className="pr-0" nav>
@@ -33,8 +40,8 @@ export default props => {
                                 </span>
                                 <Media className="ml-2 d-none d-lg-block">
                                     <span className="mb-0 text-sm font-weight-bold">
-                                        Jessica Jones
-                      </span>
+                                        {user.name}
+                                    </span>
                                 </Media>
                             </Media>
                         </DropdownToggle>
@@ -48,7 +55,7 @@ export default props => {
                                 <span>Settings</span>
                             </DropdownItem>
                             <DropdownItem divider />
-                            <DropdownItem href="#pablo" onClick={e => e.preventDefault()}>
+                            <DropdownItem onClick={e => props.logout()}>
                                 <i className="ni ni-user-run" />
                                 <span>Logout</span>
                             </DropdownItem>
@@ -59,3 +66,12 @@ export default props => {
         </Navbar>
     );
 };
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+    logout
+}, dispatch);
+
+export default connect(
+    null,
+    mapDispatchToProps
+)(AdminNavbar);

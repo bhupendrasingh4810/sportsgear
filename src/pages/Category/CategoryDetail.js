@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, Col, Row, Card, CardHeader, CardBody, Button, Form, FormGroup, Input } from 'reactstrap';
 import UploadImage from '../../components/Form/UploadImage/UploadImage';
 import { Formik } from 'formik';
-import CategorySchema from '../../shared/schemas/CategorySchema';
+import CategorySchema from '../../shared/schemas/category-schema';
 
 export default props => {
 

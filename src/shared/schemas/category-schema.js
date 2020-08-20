@@ -1,5 +1,5 @@
 import * as Yup from 'yup';
-import * as Validation from '../constants/SchemaConstants';
+import * as Validation from '../constants/schema-constants';
 
 export default Yup.object().shape({
     name: Yup.string()
@@ -10,7 +10,5 @@ export default Yup.object().shape({
         .required(Validation.REQ_IMG),
     slug: Yup.string().required(),
     sport: Yup.string()
-        .required(Validation.REQ_SPORT),
-    category: Yup.string()
-        .required(Validation.REQ_CATEGORY)
+        .required(Validation.REQ_SPORT)
 });

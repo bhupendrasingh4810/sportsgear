@@ -1,0 +1,1 @@
+export const SPORTSGEAR_USER = 'SPORTSGEAR_USER';

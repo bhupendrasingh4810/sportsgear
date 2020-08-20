@@ -1,5 +1,5 @@
 import * as Yup from 'yup';
-import * as Validation from '../constants/SchemaConstants';
+import * as Validation from '../constants/schema-constants';
 
 const ImagesSchema = Yup.object().shape({
     key: Yup.string()

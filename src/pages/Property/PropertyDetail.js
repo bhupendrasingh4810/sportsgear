@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Col, Row, Card, CardHeader, CardBody, Button, Form, FormGroup, Input } from 'reactstrap';
 import { Formik, FieldArray } from 'formik';
-import PropertySchema from '../../shared/schemas/PropertySchema';
+import PropertySchema from '../../shared/schemas/property-schema';
 
 export default props => {
 
