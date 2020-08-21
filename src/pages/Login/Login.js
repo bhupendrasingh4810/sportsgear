@@ -4,12 +4,12 @@ import { Formik } from 'formik';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import LoginSchema from '../../shared/schemas/login-schema';
-import { login } from '../../shared/store/actions/auth.action';
+import { loginAction } from '../../shared/store/actions/auth.action';
 
 const Login = props => {
 
     const login = async (values, { setSubmitting, resetForm }) => {
-        props.login(values);
+        props.loginAction(values);
         setSubmitting(false);
         resetForm();
     };
@@ -75,17 +75,11 @@ const Login = props => {
     );
 };
 
-const mapStateToProps = state => ({
-    // error: getProductsError(state),
-    // products: getProducts(state),
-    // pending: getProductsPending(state)
-})
-
 const mapDispatchToProps = dispatch => bindActionCreators({
-    login
+    loginAction
 }, dispatch)
 
 export default connect(
-    mapStateToProps,
+    null,
     mapDispatchToProps
 )(Login);

@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import appReducers from './app.reducer';
 import articleReducers from './article.reducer';
 import authReducers from './auth.reducer';
 import brandsReducers from './brand.reducer';
@@ -13,7 +14,11 @@ import userReducers from './user.reducer';
 import sectionReducers from './section.reducer';
 import reviewReducers from './review.reducer';
 
-export default combineReducers({
+import { LOGOUT, LOGIN_SUCCESS } from '../types/auth.types';
+import { SPORTSGEAR_USER } from '../../constants/app-constant';
+
+const reducers = combineReducers({
+    app: appReducers,
     article: articleReducers,
     auth: authReducers,
     brand: brandsReducers,
@@ -28,3 +33,19 @@ export default combineReducers({
     tag: tagReducers,
     user: userReducers
 });
+
+export default (state, action) => {
+    if (action.type === LOGOUT) {
+        localStorage.removeItem(SPORTSGEAR_USER);
+        state = undefined;
+    } else if (action.type === LOGIN_SUCCESS) {
+        state = {
+            ...state,
+            app: {
+                ...state.app,
+                user: action.payload.data
+            }
+        };
+    }
+    return reducers(state, action);
+};

@@ -4,7 +4,7 @@ import { Container, Row, Col } from "reactstrap";
 
 import Login from "../pages/Login/Login";
 
-export default () => {
+export default props => {
     return (
         <>
             <div className="main-content">
@@ -42,11 +42,12 @@ export default () => {
                 <Container className="mt--8 pb-5">
                     <Row className="justify-content-center">
                         <Switch>
-                            <Route
-                                path="/auth/login"
-                                component={Login}
-                            />
-                            <Redirect from="*" to="/auth/login" />
+                            {props.auth.isAuthenticated
+                                ? <Redirect from="*" to="/admin/dashboard" />
+                                : <Route
+                                    path="/auth/login"
+                                    component={Login}
+                                />}
                         </Switch>
                     </Row>
                 </Container>

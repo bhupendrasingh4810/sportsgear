@@ -1,6 +1,7 @@
 export const BASE_URL = 'http://localhost:3000';
 
 export const SYSTEM_API = `${BASE_URL}/system`;
+export const PROFILE_API = `${BASE_URL}/user/profile`;
 export const ARTICLE_API = `${BASE_URL}/article`;
 export const BRAND_API = `${BASE_URL}/brand`;
 export const CART_API = `${BASE_URL}/cart`;

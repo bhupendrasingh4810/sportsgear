@@ -24,6 +24,9 @@ import {
 } from "reactstrap";
 
 export default props => {
+
+    const { app, routes, logo, logoutAction } = props;
+
     const [collapseOpen, toggleCollapse] = useState(false);
 
     // creates the links that appear in the left menu / Sidebar
@@ -44,7 +47,7 @@ export default props => {
             );
         });
     };
-    const { routes, logo } = props;
+
     let navbarBrandProps;
     if (logo && logo.innerLink) {
         navbarBrandProps = {
@@ -113,26 +116,14 @@ export default props => {
                         </DropdownToggle>
                         <DropdownMenu className="dropdown-menu-arrow" right>
                             <DropdownItem className="noti-title" header tag="div">
-                                <h6 className="text-overflow m-0">Welcome!</h6>
+                                <h6 className="text-overflow m-0">{app.user.name}</h6>
                             </DropdownItem>
                             <DropdownItem to="/admin/user-profile" tag={Link}>
                                 <i className="ni ni-single-02" />
                                 <span>My profile</span>
                             </DropdownItem>
-                            <DropdownItem to="/admin/user-profile" tag={Link}>
-                                <i className="ni ni-settings-gear-65" />
-                                <span>Settings</span>
-                            </DropdownItem>
-                            <DropdownItem to="/admin/user-profile" tag={Link}>
-                                <i className="ni ni-calendar-grid-58" />
-                                <span>Activity</span>
-                            </DropdownItem>
-                            <DropdownItem to="/admin/user-profile" tag={Link}>
-                                <i className="ni ni-support-16" />
-                                <span>Support</span>
-                            </DropdownItem>
                             <DropdownItem divider />
-                            <DropdownItem href="#pablo" onClick={e => e.preventDefault()}>
+                            <DropdownItem href="#pablo" onClick={e => logoutAction()}>
                                 <i className="ni ni-user-run" />
                                 <span>Logout</span>
                             </DropdownItem>

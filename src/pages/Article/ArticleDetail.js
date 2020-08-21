@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Container, Col, Row, Card, CardHeader, CardBody, Button, Form, FormGroup, Input } from 'reactstrap';
 import UploadImage from '../../components/Form/UploadImage/UploadImage';
 
@@ -12,7 +12,7 @@ export default props => {
 
     const [isLoading, setLoading] = useState(false);
 
-    const [properties, setProperties] = useState([]);
+    const [properties] = useState([]);
 
     const [searchValue, searchProperty] = useState(null);
 
@@ -35,10 +35,10 @@ export default props => {
         setLoading(false);
     }
 
-    function getArticle() {
-        setLoading(true);
-        setLoading(false);
-    }
+    // function getArticle() {
+    //     setLoading(true);
+    //     setLoading(false);
+    // }
 
     function updateArticle() {
         setLoading(true);

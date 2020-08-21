@@ -15,7 +15,7 @@ const Brand = props => {
         { name: '', sortingEnabled: false }
     ];
 
-    useEffect(() => props.getBrandList(), []);
+    useEffect(() => props.getBrandList(), [props]);
 
     const [sort, setSort] = useState({
         sortOrder: 'asc',

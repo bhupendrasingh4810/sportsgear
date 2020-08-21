@@ -15,6 +15,7 @@ const apiMiddleware = ({ dispatch }) => next => async action => {
         accessToken,
         onSuccess,
         onFailure,
+        loadingAction,
         label,
         headers
     } = action.payload;
@@ -27,7 +28,7 @@ const apiMiddleware = ({ dispatch }) => next => async action => {
     axios.defaults.baseURL = process.env.REACT_APP_BASE_URL || "";
     axios.defaults.headers.common["Content-Type"] = "application/json";
     // axios.defaults.headers.common["Authorization"] = `Bearer${user && JSON.parse(user).token}`;
-    axios.defaults.headers.common["token"] = `${user && JSON.parse(user).token}`;
+    axios.defaults.headers.common["token"] = `${accessToken || (user && JSON.parse(user).token)}`;
 
 
     if (label) {
@@ -41,8 +42,10 @@ const apiMiddleware = ({ dispatch }) => next => async action => {
             headers,
             [dataOrParams]: data
         });
+        dispatch(loadingAction(false));
         dispatch(onSuccess(request.data));
     } catch (error) {
+        dispatch(loadingAction(false));
         dispatch(apiError(error));
         dispatch(onFailure(error));
         if (error.response && error.response.status === 403) {

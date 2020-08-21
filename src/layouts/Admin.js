@@ -1,10 +1,17 @@
 import React from 'react';
-import AdminSidebar from '../components/Sidebars/AdminSidebar';
 import { Switch, Redirect, Route } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+
+import AdminSidebar from '../components/Sidebars/AdminSidebar';
 import AdminNavbar from '../components/Navbars/AdminNavbar';
+import Loader from '../components/Loader/Loader';
+
+import { logoutAction } from '../shared/store/actions/auth.action';
+
 import { routes, detailPageRoutes } from '../shared/routes';
 
-export default props => {
+const Admin = props => {
 
     function getRoutes(routes, detailPageRoutes) {
         return [...routes, ...detailPageRoutes].map((prop, key) => {
@@ -30,6 +37,7 @@ export default props => {
 
     return (
         <>
+            { props.app.isLoading ? <Loader /> : null }
             <AdminSidebar
                 {...props}
                 routes={routes}
@@ -52,3 +60,12 @@ export default props => {
         </>
     );
 };
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+    logoutAction
+}, dispatch);
+
+export default connect(
+    null,
+    mapDispatchToProps
+)(Admin);

@@ -9,15 +9,12 @@ import {
     DropdownItem,
     DropdownMenu
 } from 'reactstrap';
+
 import { Link } from 'react-router-dom';
 
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { logout } from '../../shared/store/actions/auth.action';
+export default props => {
 
-const AdminNavbar = props => {
-
-    const { user } = props;
+    const { app, logoutAction } = props;
 
     return (
         <Navbar className="navbar-top navbar-dark" expand="md" id="navbar-main">
@@ -40,7 +37,7 @@ const AdminNavbar = props => {
                                 </span>
                                 <Media className="ml-2 d-none d-lg-block">
                                     <span className="mb-0 text-sm font-weight-bold">
-                                        {user.name}
+                                        {app.user.name}
                                     </span>
                                 </Media>
                             </Media>
@@ -55,7 +52,7 @@ const AdminNavbar = props => {
                                 <span>Settings</span>
                             </DropdownItem>
                             <DropdownItem divider />
-                            <DropdownItem onClick={e => props.logout()}>
+                            <DropdownItem onClick={e => logoutAction()}>
                                 <i className="ni ni-user-run" />
                                 <span>Logout</span>
                             </DropdownItem>
@@ -66,12 +63,3 @@ const AdminNavbar = props => {
         </Navbar>
     );
 };
-
-const mapDispatchToProps = dispatch => bindActionCreators({
-    logout
-}, dispatch);
-
-export default connect(
-    null,
-    mapDispatchToProps
-)(AdminNavbar);

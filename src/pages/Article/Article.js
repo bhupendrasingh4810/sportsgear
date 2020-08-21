@@ -4,9 +4,12 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import Table from '../../components/Tables/Table';
+
 import { getArticleList } from '../../shared/store/actions/article.action';
+import { setLoadingAction } from '../../shared/store/actions/app.action';
 
 const Article = props => {
+    const { getArticleList, setLoadingAction } = props;
     const tableHeadings = [
         { name: 'Name', key: 'name', sortingEnabled: true },
         { name: 'Added On', key: 'createdAt', sortingEnabled: true },
@@ -14,7 +17,10 @@ const Article = props => {
         { name: '', sortingEnabled: false }
     ];
 
-    useEffect(() => props.getArticleList(), []);
+    useEffect(() => {
+        setLoadingAction(true);
+        setTimeout(() => getArticleList(), 3000)
+    }, []);
 
     const [sort, setSort] = useState({
         sortOrder: 'asc',
@@ -59,7 +65,8 @@ const mapStateToProps = ({ article }) => ({
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-    getArticleList
+    getArticleList,
+    setLoadingAction
 }, dispatch);
 
 export default connect(

@@ -10,21 +10,21 @@ import { connect } from 'react-redux';
 
 const App = props => {
 
-  const { auth: { isAuthenticated, user } } = props;
+  const { auth, app } = props;
 
   return (
     <Router history={history}>
       <Switch>
-        <ProtectedRoute path="/admin" component={Admin} isAuthenticated={isAuthenticated} user={user} />
-        {!isAuthenticated
-          ? <Route path="/auth" render={props => <Auth {...props} />}></Route>
-          : <Redirect from="/" to="/admin/dashboard" />}
+        <ProtectedRoute path="/admin" component={Admin} auth={auth} app={app} />
+        <Route path="/auth" render={props => <Auth {...props} auth={auth} />}></Route>
+        <Redirect from="*" to="/auth/login" />
       </Switch>
     </Router>
   );
 }
 
-const mapStateToProps = ({ auth }) => ({
-  auth
+const mapStateToProps = ({ auth, app }) => ({
+  auth,
+  app
 });
 export default connect(mapStateToProps)(App);
