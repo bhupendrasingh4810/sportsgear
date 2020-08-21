@@ -2,102 +2,125 @@ import {
     GET_PROPERTY_LIST,
     GET_PROPERTY_LIST_SUCCESS,
     GET_PROPERTY_LIST_FAILURE,
-    
+
     GET_PROPERTY,
     GET_PROPERTY_SUCCESS,
     GET_PROPERTY_FAILURE,
-    
+
     ADD_PROPERTY,
     ADD_PROPERTY_SUCCESS,
     ADD_PROPERTY_FAILURE,
-    
+
     UPDATE_PROPERTY,
     UPDATE_PROPERTY_SUCCESS,
     UPDATE_PROPERTY_FAILURE,
-    
+
     DELETE_PROPERTY,
     DELETE_PROPERTY_SUCCESS,
     DELETE_PROPERTY_FAILURE,
-    
+
     CHANGE_PROPERTY_STATUS,
     CHANGE_PROPERTY_STATUS_SUCCESS,
     CHANGE_PROPERTY_STATUS_FAILURE
 } from '../types/property.types';
 
-export default function getPropertyList() {
-    return {
-        type: GET_PROPERTY_LIST
-    };
+import { apiAction } from './api.action';
+import { PROPERTY_API } from '../../constants/api-constant';
+
+export const getPropertyList = () => {
+    return apiAction({
+        url: PROPERTY_API,
+        method: 'GET',
+        data: null,
+        onSuccess: getPropertyListSuccess,
+        onFailure: getPropertyListFailure,
+        label: GET_PROPERTY_LIST
+    });
 }
 
-export default function getPropertyListSuccess() {
+const getPropertyListSuccess = payload => {
     return {
         type: GET_PROPERTY_LIST_SUCCESS,
         payload
     };
 }
 
-export default function getPropertyListFailure() {
+const getPropertyListFailure = payload => {
     return {
         type: GET_PROPERTY_LIST_FAILURE,
         payload
     };
 }
 
-export default function getProperty() {
-    return {
-        type: GET_PROPERTY
-    };
+export const getProperty = payload => {
+    return apiAction({
+        url: `${PROPERTY_API}/${payload}`,
+        method: 'GET',
+        data: null,
+        onSuccess: getPropertySuccess,
+        onFailure: getPropertyFailure,
+        label: GET_PROPERTY
+    });
 }
 
-export default function getPropertySuccess() {
+const getPropertySuccess = payload => {
     return {
         type: GET_PROPERTY_SUCCESS,
         payload
     };
 }
 
-export default function getPropertyFailure() {
+const getPropertyFailure = payload => {
     return {
         type: GET_PROPERTY_FAILURE,
         payload
     };
 }
 
-export default function addProperty() {
-    return {
-        type: ADD_PROPERTY
-    };
+export const addProperty = payload => {
+    return apiAction({
+        url: PROPERTY_API,
+        method: 'POST',
+        data: payload,
+        onSuccess: addPropertySuccess,
+        onFailure: addPropertyFailure,
+        label: ADD_PROPERTY
+    });
 }
 
-export default function addPropertySuccess() {
+const addPropertySuccess = payload => {
     return {
         type: ADD_PROPERTY_SUCCESS,
         payload
     };
 }
 
-export default function addPropertyFailure() {
+const addPropertyFailure = payload => {
     return {
         type: ADD_PROPERTY_FAILURE,
         payload
     };
 }
 
-export default function updateProperty() {
-    return {
-        type: UPDATE_PROPERTY
-    };
+export const updateProperty = ({id, body}) => {
+    return apiAction({
+        url: `${PROPERTY_API}/${id}`,
+        method: 'PUT',
+        data: body,
+        onSuccess: updatePropertySuccess,
+        onFailure: updatePropertyFailure,
+        label: UPDATE_PROPERTY
+    });
 }
 
-export default function updatePropertySuccess() {
+const updatePropertySuccess = payload => {
     return {
         type: UPDATE_PROPERTY_SUCCESS,
         payload
     };
 }
 
-export default function updatePropertyFailure() {
+const updatePropertyFailure = payload => {
     return {
         type: UPDATE_PROPERTY_FAILURE,
         payload
@@ -105,20 +128,25 @@ export default function updatePropertyFailure() {
 }
 
 
-export default function deleteProperty() {
-    return {
-        type: DELETE_PROPERTY
-    };
+export const deleteProperty = payload => {
+    return apiAction({
+        url: `${PROPERTY_API}/${payload}`,
+        method: 'DELETE',
+        data: null,
+        onSuccess: deletePropertySuccess,
+        onFailure: deletePropertyFailure,
+        label: DELETE_PROPERTY
+    });
 }
 
-export default function deletePropertySuccess() {
+const deletePropertySuccess = payload => {
     return {
         type: DELETE_PROPERTY_SUCCESS,
         payload
     };
 }
 
-export default function deletePropertyFailure() {
+const deletePropertyFailure = payload => {
     return {
         type: DELETE_PROPERTY_FAILURE,
         payload
@@ -126,20 +154,25 @@ export default function deletePropertyFailure() {
 }
 
 
-export default function changePropertyStatus() {
-    return {
-        type: CHANGE_PROPERTY_STATUS
-    };
+export const changePropertyStatus = ({id, body}) => {
+    return apiAction({
+        url: `${PROPERTY_API}/${id}`,
+        method: 'PATCH',
+        data: body,
+        onSuccess: changePropertyStatusSuccess,
+        onFailure: changePropertyStatusFailure,
+        label: CHANGE_PROPERTY_STATUS
+    });
 }
 
-export default function changePropertyStatusSuccess() {
+const changePropertyStatusSuccess = payload => {
     return {
         type: CHANGE_PROPERTY_STATUS_SUCCESS,
         payload
     };
 }
 
-export default function changePropertyStatusFailure() {
+const changePropertyStatusFailure = payload => {
     return {
         type: CHANGE_PROPERTY_STATUS_FAILURE,
         payload

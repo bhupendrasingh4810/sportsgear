@@ -1,26 +1,24 @@
 import {
-    GET_PROPERTY_LIST,
     GET_PROPERTY_LIST_SUCCESS,
     GET_PROPERTY_LIST_FAILURE,
-    GET_PROPERTY,
+
     GET_PROPERTY_SUCCESS,
     GET_PROPERTY_FAILURE,
-    ADD_PROPERTY,
+
     ADD_PROPERTY_SUCCESS,
     ADD_PROPERTY_FAILURE,
-    UPDATE_PROPERTY,
+
     UPDATE_PROPERTY_SUCCESS,
     UPDATE_PROPERTY_FAILURE,
-    DELETE_PROPERTY,
+
     DELETE_PROPERTY_SUCCESS,
     DELETE_PROPERTY_FAILURE,
-    CHANGE_PROPERTY_STATUS,
+
     CHANGE_PROPERTY_STATUS_SUCCESS,
     CHANGE_PROPERTY_STATUS_FAILURE
 } from '../types/property.types';
 
 const initialState = {
-    isLoading: false,
     properties: [],
     property: undefined,
     error: undefined
@@ -28,21 +26,10 @@ const initialState = {
 
 export default function propertyReducer(state = initialState, action) {
     switch (action.type) {
-        case GET_PROPERTY_LIST:
-        case GET_PROPERTY:
-        case ADD_PROPERTY:
-        case UPDATE_PROPERTY:
-        case DELETE_PROPERTY:
-        case CHANGE_PROPERTY_STATUS:
-            return {
-                ...state,
-                isLoading: true
-            }
         case GET_PROPERTY_LIST_SUCCESS:
             return {
                 ...state,
                 properties: action.payload,
-                isLoading: false
             }
         case GET_PROPERTY_SUCCESS:
         case UPDATE_PROPERTY_SUCCESS:
@@ -50,13 +37,11 @@ export default function propertyReducer(state = initialState, action) {
         case CHANGE_PROPERTY_STATUS_SUCCESS:
             return {
                 ...state,
-                isLoading: false,
                 property: action.payload
             }
         case DELETE_PROPERTY_SUCCESS:
             return {
-                ...state,
-                isLoading: false
+                ...state
             }
         case GET_PROPERTY_LIST_FAILURE:
         case GET_PROPERTY_FAILURE:
@@ -66,8 +51,7 @@ export default function propertyReducer(state = initialState, action) {
         case CHANGE_PROPERTY_STATUS_FAILURE:
             return {
                 ...state,
-                error: action.payload,
-                isLoading: false
+                error: action.payload
             }
         default:
             return state;

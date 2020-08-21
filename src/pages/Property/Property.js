@@ -1,9 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from 'reactstrap';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import Table from '../../components/Tables/Table';
 
-export default () => {
+import { getPropertyList } from '../../shared/store/actions/property.action';
+import { setLoadingAction } from '../../shared/store/actions/app.action';
+
+const Property = props => {
+
+    const { properties, getPropertyList, setLoadingAction } = props;
+
     const tableHeadings = [
         { name: 'Name', key: 'name', sortingEnabled: true },
         { name: 'Number of Values', sortingEnabled: false },
@@ -11,6 +19,11 @@ export default () => {
         { name: 'Status', key: 'status', sortingEnabled: true },
         { name: '', sortingEnabled: false }
     ];
+
+    useEffect(() => {
+        setLoadingAction(true);
+        setTimeout(() => getPropertyList(), 3000);
+    }, []);
 
     const [sort, setSort] = useState({
         sortOrder: 'asc',
@@ -21,8 +34,6 @@ export default () => {
         text: "Add Property",
         path: "/admin/property/add"
     };
-
-    // const tableData = [];
 
     function sortTable(sortOrder, sortBy) {
         setSort({ sortOrder, sortBy });
@@ -40,6 +51,7 @@ export default () => {
                             page="property"
                             showAddBtn={true}
                             tableHeadings={tableHeadings}
+                            data={properties}
                             addNewBtnData={addNewBtnData}
                             sortTable={sortTable}
                             sort={sort}
@@ -50,3 +62,17 @@ export default () => {
         </>
     );
 }
+
+const mapStateToProps = ({ property }) => ({
+    properties: property.properties
+});
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+    getPropertyList,
+    setLoadingAction
+}, dispatch);
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Property);

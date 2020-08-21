@@ -4,15 +4,16 @@ import {
 
     GET_ARTICLE_SUCCESS,
     GET_ARTICLE_FAILURE,
-    
+
     ADD_ARTICLE_SUCCESS,
     ADD_ARTICLE_FAILURE,
-    
+
     UPDATE_ARTICLE_SUCCESS,
     UPDATE_ARTICLE_FAILURE,
-    
+
+    DELETE_ARTICLE_SUCCESS,
     DELETE_ARTICLE_FAILURE,
-    
+
     CHANGE_ARTICLE_STATUS_SUCCESS,
     CHANGE_ARTICLE_STATUS_FAILURE
 } from '../types/article.types';
@@ -37,6 +38,10 @@ export default function articleReducer(state = initialState, action) {
             return {
                 ...state,
                 article: action.payload
+            }
+        case DELETE_ARTICLE_SUCCESS:
+            return {
+                ...state
             }
         case GET_ARTICLE_LIST_FAILURE:
         case GET_ARTICLE_FAILURE:
