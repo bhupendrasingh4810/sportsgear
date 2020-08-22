@@ -1,7 +1,5 @@
 import { API_START, API_END, API_ERROR, ACCESS_DENIED, API } from '../types/auth.types';
 
-import { setLoadingAction } from './app.action';
-
 export const apiStart = label => ({
     type: API_START,
     payload: label
@@ -31,7 +29,6 @@ export function apiAction({
     accessToken = null,
     onSuccess = () => { },
     onFailure = () => { },
-    loadingAction = setLoadingAction,
     label = "",
     headersOverride = null
 }) {
@@ -44,7 +41,6 @@ export function apiAction({
             accessToken,
             onSuccess,
             onFailure,
-            loadingAction,
             label,
             headersOverride
         }

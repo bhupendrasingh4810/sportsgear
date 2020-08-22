@@ -37,7 +37,7 @@ const Admin = props => {
 
     return (
         <>
-            { props.app.isLoading ? <Loader /> : null }
+            {/* { props.app.isLoading ? <Loader /> : null } */}
             <AdminSidebar
                 {...props}
                 routes={routes}

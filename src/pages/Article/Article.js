@@ -9,6 +9,7 @@ import { getArticleList } from '../../shared/store/actions/article.action';
 import { setLoadingAction } from '../../shared/store/actions/app.action';
 
 const Article = props => {
+
     const { getArticleList, setLoadingAction } = props;
     const tableHeadings = [
         { name: 'Name', key: 'name', sortingEnabled: true },
@@ -17,10 +18,15 @@ const Article = props => {
         { name: '', sortingEnabled: false }
     ];
 
+    // const [page, setPage] = useState(1);
+
     useEffect(() => {
         setLoadingAction(true);
-        setTimeout(() => getArticleList(), 3000)
-    }, []);
+        setTimeout(() => {
+            getArticleList();
+            setLoadingAction(false);
+        }, 3000);
+    }, [getArticleList, setLoadingAction]);
 
     const [sort, setSort] = useState({
         sortOrder: 'asc',

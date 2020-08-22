@@ -15,7 +15,6 @@ const apiMiddleware = ({ dispatch }) => next => async action => {
         accessToken,
         onSuccess,
         onFailure,
-        loadingAction,
         label,
         headers
     } = action.payload;
@@ -42,10 +41,8 @@ const apiMiddleware = ({ dispatch }) => next => async action => {
             headers,
             [dataOrParams]: data
         });
-        dispatch(loadingAction(false));
         dispatch(onSuccess(request.data));
     } catch (error) {
-        dispatch(loadingAction(false));
         dispatch(apiError(error));
         dispatch(onFailure(error));
         if (error.response && error.response.status === 403) {

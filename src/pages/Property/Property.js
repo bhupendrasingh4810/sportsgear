@@ -22,8 +22,11 @@ const Property = props => {
 
     useEffect(() => {
         setLoadingAction(true);
-        setTimeout(() => getPropertyList(), 3000);
-    }, []);
+        setTimeout(() => {
+            getPropertyList();
+            setLoadingAction(false);
+        }, 3000);
+    }, [getPropertyList, setLoadingAction]);
 
     const [sort, setSort] = useState({
         sortOrder: 'asc',
