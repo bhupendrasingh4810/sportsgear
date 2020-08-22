@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Col, Row, Card, CardHeader, CardBody, Button, Form, FormGroup, Input } from 'reactstrap';
-import UploadImage from '../../components/Form/UploadImage/UploadImage';
+import { connect } from 'react-redux';
 
-export default props => {
+import UploadImage from '../../components/Form/UploadImage/UploadImage';
+import { addBrandAction } from '../../shared/store/actions/brand.action';
+import { uploadImageAction } from '../../shared/store/actions/app.action';
+import { bindActionCreators } from 'redux';
+
+const BrandDetail = props => {
 
     const [brand, setBrand] = useState({
         name: "",
@@ -16,8 +21,9 @@ export default props => {
 
     useEffect(() => getBrand(), []);
 
-    function setLogo(logo) {
+    function setLogo(logo, file) {
         setBrand({ ...brand, logo });
+        props.uploadImageAction(file);
     }
 
     function onBrandNameChange(name) {
@@ -28,8 +34,9 @@ export default props => {
         });
     }
 
-    function addBrand() {
+    async function addBrand() {
         setLoading(true);
+        await props.addBrandAction({ ...brand, logo: props.logo });
         setLoading(false);
     }
 
@@ -127,3 +134,18 @@ export default props => {
         </>
     );
 };
+
+const mapStateToProps = ({ app, brand }) => ({
+    logo: app.image,
+    brand: brand.brand
+});
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+    addBrandAction,
+    uploadImageAction
+}, dispatch);
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(BrandDetail);

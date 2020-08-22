@@ -7,10 +7,14 @@ import {
     GET_DASHBOARD_SUCCESS,
     GET_DASHBOARD_FAILURE,
 
+    UPLOAD_IMAGE,
+    UPLOAD_IMAGE_SUCCESS,
+    UPLOAD_IMAGE_FAILURE,
+
     LOADING
 } from '../types/app.types';
 
-import { PROFILE_API, DASHBOARD_API } from '../../constants/api-constant';
+import { PROFILE_API, DASHBOARD_API, UPLOAD_API } from '../../constants/api-constant';
 import { apiAction } from './api.action';
 
 export const getUserProfileAction = () => {
@@ -59,6 +63,34 @@ function getDashboardSuccessAction(payload) {
 function getDashboardFailureAction(payload) {
     return {
         type: GET_DASHBOARD_FAILURE,
+        payload
+    };
+}
+
+export const uploadImageAction = payload => {
+    let data = new FormData();
+    data.append('image', payload);
+    return apiAction({
+        url: UPLOAD_API,
+        method: 'POST',
+        data,
+        onSuccess: uploadImageSuccessAction,
+        onFailure: uploadImageFailureAction,
+        headersOverride: { 'Content-Type': 'multipart/form-data' },
+        label: UPLOAD_IMAGE
+    });
+}
+
+function uploadImageSuccessAction(payload) {
+    return {
+        type: UPLOAD_IMAGE_SUCCESS,
+        payload
+    };
+}
+
+function uploadImageFailureAction(payload) {
+    return {
+        type: UPLOAD_IMAGE_FAILURE,
         payload
     };
 }

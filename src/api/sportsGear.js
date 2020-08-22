@@ -2,6 +2,7 @@ import axios from "axios";
 import { API } from "../shared/store/types/auth.types";
 import { accessDenied, apiError, apiStart, apiEnd } from "../shared/store/actions/api.action";
 import { SPORTSGEAR_USER } from '../shared/constants/app-constant';
+import { setLoadingAction } from "../shared/store/actions/app.action";
 
 const apiMiddleware = ({ dispatch }) => next => async action => {
     next(action);
@@ -42,8 +43,10 @@ const apiMiddleware = ({ dispatch }) => next => async action => {
             [dataOrParams]: data
         });
         dispatch(onSuccess(request.data));
+        dispatch(setLoadingAction(false));
     } catch (error) {
         dispatch(apiError(error));
+        dispatch(setLoadingAction(false));
         dispatch(onFailure(error));
         if (error.response && error.response.status === 403) {
             dispatch(accessDenied(window.location.pathname));

@@ -4,9 +4,13 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import Table from '../../components/Tables/Table';
-import { getBrandList } from '../../shared/store/actions/brand.action';
+import { getBrandListAction } from '../../shared/store/actions/brand.action';
+import { setLoadingAction } from '../../shared/store/actions/app.action';
 
 const Brand = props => {
+
+    const { getBrandListAction, setLoadingAction } = props;
+
     const tableHeadings = [
         { name: 'Logo', key: 'logo', sortingEnabled: false },
         { name: 'Name', key: 'name', sortingEnabled: true },
@@ -15,7 +19,10 @@ const Brand = props => {
         { name: '', sortingEnabled: false }
     ];
 
-    useEffect(() => props.getBrandList(), [props]);
+    useEffect(() => {
+        setLoadingAction(true);
+        setTimeout(() => getBrandListAction(), 3000);
+    }, [getBrandListAction, setLoadingAction]);
 
     const [sort, setSort] = useState({
         sortOrder: 'asc',
@@ -26,8 +33,6 @@ const Brand = props => {
         text: "Add Brand",
         path: "/admin/brand/add"
     };
-
-    // const tableData = [];
 
     function sortTable(sortOrder, sortBy) {
         setSort({ sortOrder, sortBy });
@@ -48,6 +53,7 @@ const Brand = props => {
                             addNewBtnData={addNewBtnData}
                             sortTable={sortTable}
                             sort={sort}
+                            data={props.brands}
                         />
                     </Col>
                 </Row>
@@ -61,7 +67,8 @@ const mapStateToProps = ({ brand }) => ({
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-    getBrandList
+    getBrandListAction,
+    setLoadingAction
 }, dispatch);
 
 export default connect(

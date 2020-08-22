@@ -24,7 +24,6 @@ const Article = props => {
         setLoadingAction(true);
         setTimeout(() => {
             getArticleList();
-            setLoadingAction(false);
         }, 3000);
     }, [getArticleList, setLoadingAction]);
 

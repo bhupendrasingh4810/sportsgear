@@ -8,7 +8,8 @@ import {
     GET_SYSTEM_DATA_SUCCESS,
     GET_SYSTEM_DATA_FAILURE,
 
-    LOADING
+    LOADING,
+    UPLOAD_IMAGE_SUCCESS
 } from '../types/app.types';
 
 import { SPORTSGEAR_USER } from '../../constants/app-constant';
@@ -18,6 +19,7 @@ const initialState = {
     isLoading: false,
     user: JSON.parse(user) || undefined,
     system: undefined,
+    image: undefined,
     dashboard: undefined,
     error: undefined
 }
@@ -46,6 +48,11 @@ export default function authReducer(state = initialState, action) {
                 ...state,
                 isLoading: false,
                 dashboard: action.payload
+            }
+        case UPLOAD_IMAGE_SUCCESS:
+            return {
+                ...state,
+                image: action.payload.data.image
             }
         case GET_DASHBOARD_FAILURE:
         case GET_SYSTEM_DATA_FAILURE:

@@ -16,3 +16,4 @@ export const SECTION_API = `${BASE_URL}/sport`;
 export const SUB_CATEGORY_API = `${BASE_URL}/sub-category`;
 export const TAG_API = `${BASE_URL}/tag`;
 export const USER_API = `${BASE_URL}/user`;
+export const UPLOAD_API = `${BASE_URL}/upload`;

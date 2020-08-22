@@ -19,8 +19,8 @@ export default () => {
         height: '70px',
         width: '70px',
         position: 'absolute',
-        top: '60%',
-        left: '45%',
+        top: '50%',
+        left: '50%',
         margin: '-50px 0 0 -48px'
     };
 

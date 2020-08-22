@@ -1,9 +1,15 @@
 import React from 'react';
-
+import * as moment from 'moment';
 import { Media, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import ToggleButton from '../Form/ToggleButton/ToggleButton';
 
-export default props => {
+export default ({ data }) => {
+    // const [brand, setBrand] = ({ logo: '', name: '', createdAt: '', isActive: '', _id: '' });
+
+    function changeStatus(e) {
+        console.log(e);
+    }
+
     return (
         <tr>
             <th scope="row">
@@ -15,14 +21,14 @@ export default props => {
                     >
                         <img
                             alt="..."
-                            src={require("../../assets/img/theme/bootstrap.jpg")}
+                            src={`http://localhost:3000/files/brands/${data.logo}`}
                         />
                     </a>
                 </Media>
             </th>
-            <td>Brand Name</td>
-            <td>23 Jul, 2020</td>
-            <td><ToggleButton /></td>
+            <td>{data.name}</td>
+            <td>{moment(data.createdAt).format('DD MMM, YYYY')}</td>
+            <td><ToggleButton isActive={data.isActive} changeStatus={changeStatus} /></td>
             <td className="text-right">
                 <UncontrolledDropdown>
                     <DropdownToggle

@@ -28,14 +28,14 @@ import AddTagModal from '../../shared/modals/AddTagModal';
 import ReviewTable from './ReviewTable';
 
 export default props => {
-
+    const { data, heading, showAddBtn, addNewBtnData, page, sortTable } = props;
     function renderRow(page) {
         switch (page) {
             case "article": return [0, 1, 2, 3, 4, 5].map((data, key) => {
-                return <ArticleTable sortTable={props.sortTable} key={key} />
+                return <ArticleTable sortTable={sortTable} key={key} />
             });
-            case "brand": return [0, 1, 2, 3, 4, 5].map((data, key) => {
-                return <BrandTable key={key} />
+            case "brand": return data && data.map((brand, key) => {
+                return <BrandTable data={brand} key={key} />
             });
             case "category": return [0, 1, 2, 3, 4, 5].map((data, key) => {
                 return <CategoryTable key={key} />
@@ -81,19 +81,19 @@ export default props => {
             <CardHeader className="border-0">
                 <Row className="align-items-center">
                     <div className="col">
-                        <h3 className="mb-0">{props.heading}</h3>
+                        <h3 className="mb-0">{heading}</h3>
                     </div>
                     {
-                        props.showAddBtn
+                        showAddBtn
                             ? <div className="col text-right">
-                                {props.page === 'tag'
+                                {page === 'tag'
                                     ? <AddTagModal btnLabel='Add Tag' />
                                     : <Button
                                         color="primary"
-                                        onClick={e => addNew(e, props.addNewBtnData.path)}
+                                        onClick={e => addNew(e, addNewBtnData.path)}
                                         size="sm"
                                     >
-                                        {props.addNewBtnData.text}
+                                        {addNewBtnData.text}
                                     </Button>}
                             </div>
                             : null

@@ -10,7 +10,7 @@ export default props => {
 
             reader.onload = function (e) {
                 setImage(e.target.result);
-                props.setLogo(e.target.result);
+                props.setLogo(e.target.result, input.files[0]);
             }
 
             reader.readAsDataURL(input.files[0]);

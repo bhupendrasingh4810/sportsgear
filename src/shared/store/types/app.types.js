@@ -10,4 +10,8 @@ export const GET_SYSTEM_DATA = '[System] Get System Data';
 export const GET_SYSTEM_DATA_SUCCESS = '[System] Get System Data Success';
 export const GET_SYSTEM_DATA_FAILURE = '[System] Get System Data Failure';
 
+export const UPLOAD_IMAGE = '[Image] Get Upload Image';
+export const UPLOAD_IMAGE_SUCCESS = '[Image] Get Upload Image Success';
+export const UPLOAD_IMAGE_FAILURE = '[Image] Get Upload Image Failure';
+
 export const LOADING = '[APP] Loading';

@@ -56,7 +56,7 @@ export default function brandReducer(state = initialState, action) {
             return {
                 ...state,
                 isLoading: false,
-                brand: action.payload
+                brand: action.payload.data
             }
         case DELETE_BRAND_SUCCESS:
             return {
