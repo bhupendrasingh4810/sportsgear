@@ -155,7 +155,7 @@ export const deleteBrandFailureAction = payload => {
 
 export const changeBrandStatusAction = ({ id, body }) => {
     return apiAction({
-        url: `${BRAND_API}/${id}`,
+        url: `${BRAND_API}/status/${id}`,
         method: 'PATCH',
         data: body,
         onSuccess: changeBrandStatusSuccessAction,

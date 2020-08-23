@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Col, Row, Card, CardHeader, CardBody, Button, Form, FormGroup, Input } from 'reactstrap';
-import UploadImage from '../../components/Form/UploadImage/UploadImage';
+import UploadImage from '../../components/Fields/UploadImage/UploadImage';
 import { Formik, FieldArray } from 'formik';
 import ProductSchema from '../../shared/schemas/product-schema';
 

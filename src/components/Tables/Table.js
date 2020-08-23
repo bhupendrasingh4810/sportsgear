@@ -10,6 +10,7 @@ import {
     Table,
     Row,
     Button,
+    Input,
 } from 'reactstrap';
 import TableHead from './TableHead';
 import BrandTable from './BrandTable';
@@ -76,12 +77,21 @@ export default props => {
         history.push(path);
     }
 
+
+
     return (
         <Card className="shadow">
             <CardHeader className="border-0">
                 <Row className="align-items-center">
                     <div className="col">
                         <h3 className="mb-0">{heading}</h3>
+                    </div>
+                    <div className="col">
+                        <Input
+                            className="form-control-alternative"
+                            placeholder="Search ..."
+                            type="text"
+                        />
                     </div>
                     {
                         showAddBtn

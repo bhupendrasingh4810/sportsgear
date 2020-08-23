@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ReactDatetime from "react-datetime";
 import { Container, Col, Row, Card, CardHeader, CardBody, Button, Form, FormGroup, Input, InputGroup, InputGroupAddon, InputGroupText } from 'reactstrap';
-import UploadImage from '../../components/Form/UploadImage/UploadImage';
+import UploadImage from '../../components/Fields/UploadImage/UploadImage';
 import { Formik } from 'formik';
 import UserSchema from '../../shared/schemas/user-schema';
 

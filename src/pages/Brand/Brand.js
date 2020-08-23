@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import Table from '../../components/Tables/Table';
+
 import { getBrandListAction } from '../../shared/store/actions/brand.action';
 import { setLoadingAction } from '../../shared/store/actions/app.action';
 
@@ -21,7 +22,7 @@ const Brand = props => {
 
     useEffect(() => {
         setLoadingAction(true);
-        setTimeout(() => getBrandListAction(), 3000);
+        setTimeout(() => getBrandListAction(), 250);
     }, [getBrandListAction, setLoadingAction]);
 
     const [sort, setSort] = useState({

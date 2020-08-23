@@ -1,13 +1,32 @@
 import React from 'react';
 import * as moment from 'moment';
-import { Media, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-import ToggleButton from '../Form/ToggleButton/ToggleButton';
+import { Media } from 'reactstrap';
+import { bindActionCreators } from 'redux';
+import { connect } from "react-redux";
 
-export default ({ data }) => {
-    // const [brand, setBrand] = ({ logo: '', name: '', createdAt: '', isActive: '', _id: '' });
+import ToggleButton from '../Fields/ToggleButton/ToggleButton';
+import DeleteButton from '../Buttons/DeleteButton';
 
-    function changeStatus(e) {
-        console.log(e);
+import { setLoadingAction } from "../../shared/store/actions/app.action";
+// import history from '../../history';
+import { deleteBrandAction, getBrandListAction, changeBrandStatusAction } from "../../shared/store/actions/brand.action";
+
+export const BrandTable = ({ data, setLoadingAction, deleteBrandAction, getBrandListAction, changeBrandStatusAction }) => {
+
+    const changeStatus = async e => {
+        setLoadingAction(true);
+        await setTimeout(() => {
+            changeBrandStatusAction({ id: data._id, body: { isActive: e } });
+            getBrandListAction();
+        }, 3000);
+    }
+
+    async function deleteItem() {
+        setLoadingAction(true);
+        await setTimeout(() => {
+            deleteBrandAction({ id: data._id });
+            getBrandListAction();
+        }, 3000);
     }
 
     return (
@@ -30,39 +49,31 @@ export default ({ data }) => {
             <td>{moment(data.createdAt).format('DD MMM, YYYY')}</td>
             <td><ToggleButton isActive={data.isActive} changeStatus={changeStatus} /></td>
             <td className="text-right">
-                <UncontrolledDropdown>
-                    <DropdownToggle
-                        className="btn-icon-only text-light"
-                        href="#pablo"
-                        role="button"
-                        size="sm"
-                        color=""
-                        onClick={e => e.preventDefault()}
-                    >
-                        <i className="fas fa-ellipsis-v" />
-                    </DropdownToggle>
-                    <DropdownMenu className="dropdown-menu-arrow" right>
-                        <DropdownItem
-                            href="#pablo"
-                            onClick={e => e.preventDefault()}
-                        >
-                            Action
-                            </DropdownItem>
-                        <DropdownItem
-                            href="#pablo"
-                            onClick={e => e.preventDefault()}
-                        >
-                            Another action
-                            </DropdownItem>
-                        <DropdownItem
-                            href="#pablo"
-                            onClick={e => e.preventDefault()}
-                        >
-                            Something else here
-                            </DropdownItem>
-                    </DropdownMenu>
-                </UncontrolledDropdown>
+                <button
+                    type="button"
+                    onClick={e => {}}
+                    className="btn btn-secondary btn-sm"
+                >Edit</button>
+                <DeleteButton
+                    title={'Delete Brand'}
+                    body={`Are you sure you want to delete ${data.name}?`}
+                    deleteItem={deleteItem}
+                    confirmBtnText={'Yes'}
+                    cancelBtnText={'Cancel'}
+                />
             </td>
         </tr>
     );
 };
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+    setLoadingAction,
+    deleteBrandAction,
+    getBrandListAction,
+    changeBrandStatusAction
+}, dispatch);
+
+export default connect(
+    null,
+    mapDispatchToProps
+)(BrandTable);

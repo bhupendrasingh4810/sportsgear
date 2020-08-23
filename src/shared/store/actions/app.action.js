@@ -81,7 +81,7 @@ export const uploadImageAction = payload => {
     });
 }
 
-function uploadImageSuccessAction(payload) {
+export function uploadImageSuccessAction(payload) {
     return {
         type: UPLOAD_IMAGE_SUCCESS,
         payload

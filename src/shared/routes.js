@@ -11,7 +11,8 @@ import SubCategory from '../pages/SubCategory/SubCategory';
 import User from '../pages/User/User';
 import Tag from '../pages/Tag/Tag';
 import ArticleDetail from '../pages/Article/ArticleDetail';
-import BrandDetail from '../pages/Brand/BrandDetail';
+import AddBrand from '../pages/Brand/AddBrand';
+import EditBrand from '../pages/Brand/EditBrand';
 import CategoryDetail from '../pages/Category/CategoryDetail';
 import SectionDetail from '../pages/Section/SectionDetail';
 import SubCategoryDetail from '../pages/SubCategory/SubCategoryDetail';
@@ -155,25 +156,17 @@ export const detailPageRoutes = [
     {
         path: "/add",
         name: "Add Brand",
-        page: "brand_detail",
+        page: "add_brand",
         icon: "ni ni-tv-2 text-primary",
-        component: BrandDetail,
+        component: AddBrand,
         layout: "/admin/brand"
     },
     {
         path: "/edit/:id",
         name: "Edit Brand",
-        page: "brand_detail",
+        page: "edit_brand",
         icon: "ni ni-tv-2 text-primary",
-        component: BrandDetail,
-        layout: "/admin/brand"
-    },
-    {
-        path: "/:id",
-        name: "Brand Detail",
-        page: "brand_detail",
-        icon: "ni ni-tv-2 text-primary",
-        component: BrandDetail,
+        component: EditBrand,
         layout: "/admin/brand"
     },
     {

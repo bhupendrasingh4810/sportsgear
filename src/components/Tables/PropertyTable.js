@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-import ToggleButton from '../Form/ToggleButton/ToggleButton';
+import ToggleButton from '../Fields/ToggleButton/ToggleButton';
 
 export default props => {
 
